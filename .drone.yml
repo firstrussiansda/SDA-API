@@ -1,0 +1,76 @@
+---
+kind: pipeline
+name: deploy
+
+steps:
+- name: deploy
+  image: docker/compose:1.24.1
+  environment:
+    COMPOSE_PROJECT_NAME: sda-api
+    DJANGO_DATABASE_URL:
+      from_secret: DJANGO_DATABASE_URL
+    DJANGO_SECRET_KEY:
+      from_secret: DJANGO_SECRET_KEY
+    POSTGRES_DB:
+      from_secret: POSTGRES_DB
+    POSTGRES_PASSWORD:
+      from_secret: POSTGRES_PASSWORD
+    POSTGRES_USER:
+      from_secret: POSTGRES_USER
+  volumes:
+    - name: docker_sock
+      path: /var/run/docker.sock
+  commands:
+    - docker-compose build --pull
+    - docker-compose up -d
+    - timeout -t 10 docker-compose logs -f app || true
+
+trigger:
+  ref:
+    - refs/heads/master
+
+volumes:
+  - name: docker_sock
+    host:
+      path: /var/run/docker.sock
+
+---
+kind: secret
+name: DJANGO_DATABASE_URL
+get:
+  path: drone/data/firstrussianny/SDA-API
+  name: DJANGO_DATABASE_URL
+
+---
+kind: secret
+name: DJANGO_SECRET_KEY
+get:
+  path: drone/data/firstrussianny/SDA-API
+  name: DJANGO_SECRET_KEY
+
+---
+kind: secret
+name: POSTGRES_DB
+get:
+  path: drone/data/firstrussianny/SDA-API
+  name: POSTGRES_DB
+
+---
+kind: secret
+name: POSTGRES_PASSWORD
+get:
+  path: drone/data/firstrussianny/SDA-API
+  name: POSTGRES_PASSWORD
+
+---
+kind: secret
+name: POSTGRES_USER
+get:
+  path: drone/data/firstrussianny/SDA-API
+  name: POSTGRES_USER
+
+---
+kind: signature
+hmac: 371f17c9f91031372856cfdacc7559470ee1b32d535fd0ad7a26a0c17184f4e9
+
+...

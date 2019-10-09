@@ -18,17 +18,20 @@ install:  ## install all deps
 	pipenv install $(PIPENV_FLAGS)
 	pip freeze
 
-makemessages:  ## update translation files
+firstrussian/static:
+	mkdir firstrussian/static
+
+makemessages: firstrussian/static  ## update translation files
 	./manage.py makemessages -a -i *.py
 
-compilemessages:  ## compile translation files
+compilemessages: firstrussian/static  ## compile translation files
 	./manage.py compilemessages
 
-collectstatic:  ## collect all staticfiles to a single location
+collectstatic: firstrussian/static  ## collect all staticfiles to a single location
 	./manage.py collectstatic --no-input
 
-migrate:  ## run all migrations
+migrate: firstrussian/static  ## run all migrations
 	./manage.py migrate
 
-run: compilemessages collectstatic migrate
+run: firstrussian/static compilemessages collectstatic migrate
 	./manage.py $(RUN_CMD) 0.0.0.0:8000
