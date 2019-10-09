@@ -1,0 +1,6 @@
+**/*.pyc
+**/*.pyo
+**/*.db
+**/__pycache__
+**/*.mo
+firstrussian/static

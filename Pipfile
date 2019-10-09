@@ -1,0 +1,44 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[packages]
+breach-buster-redux = "*"
+colorama = "*"
+coreapi = "*"
+dj-database-url = "*"
+django = "*"
+django-auxilium = "*"
+django-configurations = "*"
+django-debug-toolbar = "*"
+django-dirtyfields = "*"
+django-extensions = "*"
+django-modeltranslation = "*"
+django-pipeline = "*"
+django-rosetta = "*"
+django-url-filter = "*"
+djangorestframework = "*"
+drf-yasg = "*"
+packaging = "*"
+psycopg2-binary = "*"
+requests = "*"
+structlog = "*"
+
+[dev-packages]
+black = "==19.3b0"
+django-extensions = "*"
+flake8 = "*"
+flake8-bugbear = "*"
+importanize = "*"
+mccabe = "*"
+mypy = "*"
+pdbpp = "*"
+pre-commit = "*"
+pre-commit-hooks = "*"
+ptpython = "*"
+watchdog = "*"
+werkzeug = "*"
+
+[requires]
+python_version = "3.7"
