@@ -3,12 +3,18 @@ version: "3.7"
 networks:
   app: {}
 
+volumes:
+  pgdata:
+  media:
+
 services:
   db:
     image: postgres:12-alpine
     env_file: ${ENV_FILE:-envs/prod.env}
     networks:
       - app
+    volumes:
+      - pgdata:/var/lib/postgresql/data
 
   app:
     build:
@@ -17,7 +23,9 @@ services:
       args:
         PIPENV_FLAGS: ${PIPENV_FLAGS:---deploy --system}
     init: true
-    env_file: ${ENV_FILE:-envs/prod.env}
+    env_file:
+      - envs/base.env
+      - ${ENV_FILE:-envs/prod.env}
     depends_on:
       - db
     networks:
@@ -26,3 +34,4 @@ services:
       - 8000:8000
     volumes:
       - $PWD:${MOUNT_PATH:-/tmp}
+      - media:/media

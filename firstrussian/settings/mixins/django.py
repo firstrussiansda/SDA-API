@@ -27,14 +27,19 @@ class DjangoMixin:
     STATIC_URL = "/static/"
     MEDIA_URL = "/media/"
 
-    STATIC_ROOT = values.PathValue(default=str(pathlib.Path(PROJECT_PATH) / PROJECT_NAME / "static"))
+    STATIC_ROOT = values.PathValue(
+        default=str(pathlib.Path(PROJECT_PATH) / PROJECT_NAME / "static")
+    )
+    MEDIA_ROOT = values.PathValue(
+        default=str(pathlib.Path(PROJECT_PATH) / PROJECT_NAME / "media")
+    )
 
     @property
     def WSGI_APPLICATION(self) -> str:
         return f"{self.PROJECT_NAME}.wsgi.application"
 
     DATABASES = values.DatabaseURLValue(
-        default="sqlite:///db.sqlite3", conn_max_age=None, environ_prefix='DJANGO',
+        default="sqlite:///db.sqlite3", conn_max_age=None, environ_prefix="DJANGO"
     )
 
     INSTALLED_APPS_PROJECT: typing.List[str] = []
@@ -77,7 +82,7 @@ class DjangoMixin:
                 + self.MIDDLEWARE_RESPONSE_AFTER_COMPRESSION
                 + [
                     (
-                        "breach_buster.middleware.gzip.GZipMiddleware"
+                        "django.middleware.gzip.GZipMiddleware"
                         if not self.DEVELOPMENT
                         else None
                     )
@@ -86,6 +91,11 @@ class DjangoMixin:
                 + [
                     (
                         "django.middleware.security.SecurityMiddleware"
+                        if not self.DEVELOPMENT
+                        else None
+                    ),
+                    (
+                        "firstrussian.middleware.whitenoise.StaticAndMediaMiddleware"
                         if not self.DEVELOPMENT
                         else None
                     ),

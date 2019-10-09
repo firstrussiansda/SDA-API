@@ -24,6 +24,7 @@ packaging = "*"
 psycopg2-binary = "*"
 requests = "*"
 structlog = "*"
+whitenoise = "*"
 
 [dev-packages]
 black = "==19.3b0"
