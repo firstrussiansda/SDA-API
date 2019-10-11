@@ -7,6 +7,8 @@ steps:
   image: docker/compose:1.24.1
   environment:
     COMPOSE_PROJECT_NAME: sda-api
+    DJANGO_SITE_URL:
+      from_secret: DJANGO_SITE_URL
     DJANGO_DATABASE_URL:
       from_secret: DJANGO_DATABASE_URL
     DJANGO_SECRET_KEY:
@@ -33,6 +35,13 @@ volumes:
   - name: docker_sock
     host:
       path: /var/run/docker.sock
+
+---
+kind: secret
+name: DJANGO_SITE_URL
+get:
+  path: drone/data/firstrussianny/SDA-API
+  name: DJANGO_SITE_URL
 
 ---
 kind: secret
@@ -71,6 +80,6 @@ get:
 
 ---
 kind: signature
-hmac: 371f17c9f91031372856cfdacc7559470ee1b32d535fd0ad7a26a0c17184f4e9
+hmac: a638efa7157e5eecf928cef2f4a7d06fc28f7e8fb5d12b63a019d0cbb6485da3
 
 ...

@@ -3,7 +3,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/dev/ref/settings/
 """
 
-from configurations import Configuration
+from configurations import Configuration, values
 from django.utils.translation import gettext_lazy as _
 
 from .mixins import DjangoMixin, LoggingMixin, SecurityMixin
@@ -32,3 +32,5 @@ class Settings(LoggingMixin, SecurityMixin, DjangoMixin, Configuration):
     ]
 
     LANGUAGES = (("ru", _("Russian")), ("uk", _("Ukranian")), ("en", _("English")))
+
+    SITE_URL = values.Value(default="/")

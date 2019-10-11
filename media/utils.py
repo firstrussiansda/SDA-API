@@ -1,8 +1,13 @@
 from dataclasses import dataclass
 
 import requests
+
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
+from structlog import get_logger
+
+
+log = get_logger()
 
 
 @dataclass
@@ -18,30 +23,37 @@ def oembed_from_id(object_id, oembed_url, service, field, pattern):
             _("This field does match expected pattern %(pattern)s.") % locals()
         )
 
+    log_kwargs = {"service": service, "field": field, "url": oembed_url}
+
     try:
         r = requests.get(oembed_url)
-    except requests.RequestException:
-        # TODO log exeption
+    except requests.RequestException as e:
+        log.exception(
+            "Could not connect to external oembed service", **log_kwargs
+        )
         raise ValidationError(
             _("Could not connect to %(service)s to validate %(field)s.") % locals()
-        )
+        ) from e
 
     if r.status_code == 404:
         raise ValidationError(_("%(service)s %(field)s not found.") % locals())
 
     elif r.status_code != 200:
-        # TODO log error
+        log.error("Received error from external oembed", **log_kwargs)
         raise ValidationError(
             _("Could not validate %(field)s due to %(service)s error.") % locals()
         )
 
     try:
         data = r.json()
-    except ValueError:
+    except ValueError as e:
+        log.exception(
+            "Received invalid json response from external oembed", **log_kwargs
+        )
         raise ValidationError(
             _("Could not validate %(field)s due to invalid response from %(service)s.")
             % locals()
-        )
+        ) from e
 
     return OEmbedData(
         object_id=object_id,
