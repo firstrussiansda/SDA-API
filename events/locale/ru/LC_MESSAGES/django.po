@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-05 14:57+0000\n"
+"POT-Creation-Date: 2019-10-10 08:36-0400\n"
 "PO-Revision-Date: 2019-09-15 21:17+0000\n"
 "Last-Translator: b'  <admin@admin.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -49,10 +49,14 @@ msgstr "URL Фотографии"
 msgid "Image Description"
 msgstr "Описание Фотографии"
 
-#: events/models.py:23
+#: events/models.py:22
+msgid "Location Name"
+msgstr "Место Расположения"
+
+#: events/models.py:25
 msgid "Event"
 msgstr "Событие"
 
-#: events/models.py:24
+#: events/models.py:26
 msgid "Events"
 msgstr "События"

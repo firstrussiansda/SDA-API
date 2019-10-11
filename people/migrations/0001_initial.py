@@ -1,6 +1,7 @@
 import uuid
 
 from django.db import migrations, models
+import django_auxilium.models.fields.files
 
 
 class Migration(migrations.Migration):
@@ -46,10 +47,10 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "profile_image",
-                    models.FileField(
+                    django_auxilium.models.fields.files.RandomImageField(
                         blank=True,
                         help_text="Uploaded profile image",
-                        upload_to="",
+                        upload_to="people/profiles_images",
                         verbose_name="Profile Image",
                     ),
                 ),

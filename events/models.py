@@ -19,6 +19,8 @@ class Event(BaseModel):
         _("Image Description"), max_length=512, blank=True
     )
 
+    location_name = models.CharField(_("Location Name"), max_length=256, blank=True)
+
     class Meta:
         verbose_name = _("Event")
         verbose_name_plural = _("Events")

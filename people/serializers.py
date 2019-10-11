@@ -8,7 +8,7 @@ class PersonSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Person
-        fields = ["id", "url", "name", "profile_image_url"]
+        fields = ["id", "url", "name", "profile_image_url", "position"]
 
     def get_profile_image_url(self, obj):
         url = obj.profile_image_url

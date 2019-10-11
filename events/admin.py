@@ -13,4 +13,5 @@ class EventOptions(TranslationAdmin):
         "description",
         "image_url",
         "image_description",
+        "location_name",
     ]

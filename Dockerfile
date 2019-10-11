@@ -12,8 +12,8 @@ WORKDIR /app
 ARG PIPENV_FLAGS="--deploy --system"
 
 COPY Makefile Pipfile Pipfile.lock /app/
-RUN make install
+RUN make init
 
 COPY . /app
 
-CMD make run
+CMD make run -j 5

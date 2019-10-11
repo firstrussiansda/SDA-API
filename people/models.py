@@ -1,11 +1,18 @@
 import hashlib
 import uuid
 
+from dirtyfields import DirtyFieldsMixin
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django_auxilium.models import (
+    BaseModel,
+    RandomImageField,
+    file_field_auto_change_delete,
+)
 
 
-class Person(models.Model):
+@file_field_auto_change_delete
+class Person(DirtyFieldsMixin, BaseModel):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
     name = models.CharField(_("Name"), max_length=128)
@@ -13,9 +20,15 @@ class Person(models.Model):
     gravatar_email = models.EmailField(
         _("Email"), blank=True, help_text=_("Gravatar email for profile image")
     )
-    # TODO random path and delete hook
-    profile_image = models.FileField(
-        _("Profile Image"), blank=True, help_text=_("Uploaded profile image")
+    profile_image = RandomImageField(
+        _("Profile Image"),
+        blank=True,
+        upload_to="people/profiles_images",
+        help_text=_("Uploaded profile image"),
+    )
+
+    position = models.CharField(
+        _("Position"), max_length=128, blank=True, help_text=_("Position in the church")
     )
 
     class Meta:
