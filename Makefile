@@ -33,7 +33,7 @@ collectstatic: firstrussian/static  ## collect all staticfiles to a single locat
 migrate: firstrussian/static  ## run all migrations
 	./manage.py migrate
 
-run: #firstrussian/static compilemessages collectstatic migrate
+run: firstrussian/static compilemessages collectstatic migrate
 	if [ "$(DJANGO_RUN)" = "runserver" ]; \
 	then \
 		./manage.py runserver_plus 0.0.0.0:8000; \
