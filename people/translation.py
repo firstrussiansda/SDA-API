@@ -5,4 +5,4 @@ from .models import Person
 
 @register(Person)
 class PersonOptions(TranslationOptions):
-    fields = ["name"]
+    fields = ["name", "position"]
