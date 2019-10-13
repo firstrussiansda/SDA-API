@@ -6,7 +6,7 @@ from .models import Person
 class PersonFilterSet(ModelFilterSet):
     class Meta:
         model = Person
-        fields = ["id", "name"]
+        fields = ["id", "name", "position"]
         extra_kwargs = {
             "id": {"lookups": ["exact", "in"]},
             "name": {
@@ -21,6 +21,14 @@ class PersonFilterSet(ModelFilterSet):
                     "iregex",
                     "istartswith",
                     "regex",
+                ]
+            },
+            "position": {
+                "lookups": [
+                    "exact",
+                    "iexact",
+                    "in",
+                    "isnull",
                 ]
             },
         }
