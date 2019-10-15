@@ -94,10 +94,17 @@ class SoundCloudAsset(BaseAsset):
             "Object ID",
             "<account>/<track-slug>",
         )
+
+        # get track_id attribute
+        track_id = ""
+        track_id_search = re.search(r"tracks%2F(\d+)", metadata.html)
+        if track_id_search:
+            track_id = track_id_search.group(1)
+
         self.object_id = metadata.object_id
         self.title = metadata.title
         self.thumbnail_url = metadata.thumbnail_url
-        self.track_id = metadata.track_id
+        self.track_id = track_id
 
 
 class YouTubeAsset(BaseAsset):
