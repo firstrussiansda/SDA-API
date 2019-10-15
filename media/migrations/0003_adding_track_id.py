@@ -7,7 +7,7 @@ import re
 def derive_track_id(apps, schema_editor):
     SoundCloudAsset = apps.get_model('media', 'SoundCloudAsset')
 
-    for asset in SoundCloudAsset.objects.all():
+    for asset in SoundCloudAsset.objects.filter(track_id=""):
         try:
             r = requests.get(f"https://soundcloud.com/oembed?url=https://soundcloud.com/{asset.object_id}&format=json")
         except requests.RequestException:
