@@ -9,7 +9,7 @@ from .serializers import EventSerializer
 
 class EventViewSet(viewsets.ReadOnlyModelViewSet):
     model = Event
-    queryset = Event.objects.all()
+    queryset = Event.objects.order_by("-date").all()
     serializer_class = EventSerializer
     filter_backends = [CoreAPIURLFilterBackend]
     filter_class = EventFilterSet

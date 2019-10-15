@@ -49,10 +49,14 @@ msgstr ""
 msgid "Image Description"
 msgstr ""
 
-#: events/models.py:23
+#: events/models.py:22
+msgid "Location Name"
+msgstr ""
+
+#: events/models.py:25
 msgid "Event"
 msgstr ""
 
-#: events/models.py:24
+#: events/models.py:26
 msgid "Events"
 msgstr ""

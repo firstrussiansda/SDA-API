@@ -1,5 +1,5 @@
 PIPENV_FLAGS ?= "--deploy --system"
-RUN_CMD ?= runserver
+DJANGO_RUN ?= gunicorn
 
 help:  ## show help
 	@grep -E '^[a-zA-Z_\-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
@@ -14,7 +14,7 @@ clean:  ## clean all temporary files
 	find -name '__pycache__' -delete
 	find -name '*.mo' -delete
 
-install:  ## install all deps
+init:  ## install all deps
 	pipenv install $(PIPENV_FLAGS)
 	pip freeze
 
@@ -34,4 +34,9 @@ migrate: firstrussian/static  ## run all migrations
 	./manage.py migrate
 
 run: firstrussian/static compilemessages collectstatic migrate
-	./manage.py $(RUN_CMD) 0.0.0.0:8000
+	if [ "$(DJANGO_RUN)" = "runserver" ]; \
+	then \
+		./manage.py runserver_plus 0.0.0.0:8000; \
+	else \
+		gunicorn --config gunicorn.py firstrussian.wsgi:application; \
+	fi

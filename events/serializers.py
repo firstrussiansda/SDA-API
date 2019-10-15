@@ -15,4 +15,5 @@ class EventSerializer(serializers.HyperlinkedModelSerializer):
             "is_featured",
             "image_url",
             "image_description",
+            "location_name",
         ]

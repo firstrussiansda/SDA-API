@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-14 20:39-0400\n"
+"POT-Creation-Date: 2019-10-10 08:36-0400\n"
 "PO-Revision-Date: 2019-09-15 21:14+0000\n"
 "Last-Translator: b'  <admin@admin.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,7 +39,7 @@ msgstr "Идентификатор Аудиозаписи"
 
 #: media/models.py:71 media/models.py:113
 msgid "Thumbnail URL"
-msgstr ""
+msgstr "URL Фотографии"
 
 #: media/models.py:74
 msgid "SoundCloud Asset"

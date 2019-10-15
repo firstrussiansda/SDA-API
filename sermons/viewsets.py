@@ -9,9 +9,13 @@ from .serializers import SermonSerializer
 
 class SermonViewSet(viewsets.ReadOnlyModelViewSet):
     model = Sermon
-    queryset = Sermon.objects.prefetch_related(
-        "speakers", "soundcloud_assets", "youtube_assets"
-    ).all()
+    queryset = (
+        Sermon.objects.prefetch_related(
+            "speakers", "soundcloud_assets", "youtube_assets"
+        )
+        .order_by("-date")
+        .all()
+    )
     serializer_class = SermonSerializer
     filter_backends = [CoreAPIURLFilterBackend]
     filter_class = SermonFilterSet
