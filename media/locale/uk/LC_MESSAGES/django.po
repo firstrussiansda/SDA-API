@@ -25,55 +25,59 @@ msgstr ""
 msgid "media"
 msgstr ""
 
-#: media/models.py:59 media/models.py:100
+#: media/models.py:59 media/models.py:107
 msgid "Title"
 msgstr ""
 
-#: media/models.py:61 media/models.py:102
+#: media/models.py:61 media/models.py:109
 msgid "Object ID"
 msgstr ""
 
-#: media/models.py:65 media/models.py:106
+#: media/models.py:66
+msgid "Track ID"
+msgstr ""
+
+#: media/models.py:71 media/models.py:113
 msgid "Thumbnail URL"
 msgstr ""
 
-#: media/models.py:68
+#: media/models.py:74
 msgid "SoundCloud Asset"
 msgstr ""
 
-#: media/models.py:69
+#: media/models.py:75
 msgid "SoundCloud Assets"
 msgstr ""
 
-#: media/models.py:109
+#: media/models.py:116
 msgid "YouTube Asset"
 msgstr ""
 
-#: media/models.py:110
+#: media/models.py:117
 msgid "YouTube Assets"
 msgstr ""
 
-#: media/utils.py:18
+#: media/utils.py:20
 #, python-format
 msgid "This field does match expected pattern %(pattern)s."
 msgstr ""
 
-#: media/utils.py:26
+#: media/utils.py:28
 #, python-format
 msgid "Could not connect to %(service)s to validate %(field)s."
 msgstr ""
 
-#: media/utils.py:30
+#: media/utils.py:32
 #, python-format
 msgid "%(service)s %(field)s not found."
 msgstr ""
 
-#: media/utils.py:35
+#: media/utils.py:37
 #, python-format
 msgid "Could not validate %(field)s due to %(service)s error."
 msgstr ""
 
-#: media/utils.py:42
+#: media/utils.py:44
 #, python-format
 msgid "Could not validate %(field)s due to invalid response from %(service)s."
 msgstr ""

@@ -14,6 +14,7 @@ class SoundCloudAssetSerializer(serializers.HyperlinkedModelSerializer):
             "object_url",
             "oembed_object_url",
             "thumbnail_url",
+            "track_id",
         ]
 
 

@@ -60,7 +60,13 @@ class SoundCloudAsset(BaseAsset):
     object_id = models.CharField(
         _("Object ID"),
         max_length=128,
-        help_text="SoundCloud track ID. Can be given as full SoundCloud URL from which ID is extracted.",
+        help_text="SoundCloud object ID. Can be given as full SoundCloud URL from which ID is extracted.",
+    )
+    track_id = models.CharField(
+        _("Track ID"),
+        max_length=32,
+        editable=False,
+        help_text="SoundCloud track ID. Extracted from a linked SoundCloud resource."
     )
     thumbnail_url = models.URLField(_("Thumbnail URL"), max_length=256, editable=False)
 
@@ -88,9 +94,17 @@ class SoundCloudAsset(BaseAsset):
             "Object ID",
             "<account>/<track-slug>",
         )
+
+        # get track_id attribute
+        track_id = ""
+        track_id_search = re.search(r"tracks%2F(\d+)", metadata.html)
+        if track_id_search:
+            track_id = track_id_search.group(1)
+
         self.object_id = metadata.object_id
         self.title = metadata.title
         self.thumbnail_url = metadata.thumbnail_url
+        self.track_id = track_id
 
 
 class YouTubeAsset(BaseAsset):
