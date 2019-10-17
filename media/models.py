@@ -66,7 +66,7 @@ class SoundCloudAsset(BaseAsset):
         _("Track ID"),
         max_length=32,
         editable=False,
-        help_text="SoundCloud track ID. Extracted from a linked SoundCloud resource."
+        help_text="SoundCloud track ID. Extracted from a linked SoundCloud resource.",
     )
     thumbnail_url = models.URLField(_("Thumbnail URL"), max_length=256, editable=False)
 

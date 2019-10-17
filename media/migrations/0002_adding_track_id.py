@@ -18,12 +18,12 @@ class Migration(migrations.Migration):
             ),
         ),
         migrations.AlterField(
-            model_name='soundcloudasset',
-            name='object_id',
+            model_name="soundcloudasset",
+            name="object_id",
             field=models.CharField(
-                help_text='SoundCloud object ID. Can be given as full SoundCloud URL from which ID is extracted.',
+                help_text="SoundCloud object ID. Can be given as full SoundCloud URL from which ID is extracted.",
                 max_length=128,
-                verbose_name='Object ID'
+                verbose_name="Object ID",
             ),
-        )
+        ),
     ]

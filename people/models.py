@@ -30,6 +30,7 @@ class Person(DirtyFieldsMixin, BaseModel):
     position = models.CharField(
         _("Position"), max_length=128, blank=True, help_text=_("Position in the church")
     )
+    about = models.TextField(_("About"), blank=True)
 
     class Meta:
         verbose_name = _("Person")

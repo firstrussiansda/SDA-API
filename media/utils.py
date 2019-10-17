@@ -2,7 +2,6 @@ import re
 from dataclasses import dataclass
 
 import requests
-
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
 from structlog import get_logger
@@ -30,9 +29,7 @@ def oembed_from_id(object_id, oembed_url, service, field, pattern):
     try:
         r = requests.get(oembed_url)
     except requests.RequestException as e:
-        log.exception(
-            "Could not connect to external oembed service", **log_kwargs
-        )
+        log.exception("Could not connect to external oembed service", **log_kwargs)
         raise ValidationError(
             _("Could not connect to %(service)s to validate %(field)s.") % locals()
         ) from e
@@ -56,7 +53,7 @@ def oembed_from_id(object_id, oembed_url, service, field, pattern):
             _("Could not validate %(field)s due to invalid response from %(service)s.")
             % locals()
         ) from e
-    
+
     return OEmbedData(
         object_id=object_id,
         title=data.get("title"),

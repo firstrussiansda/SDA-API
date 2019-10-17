@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-10 08:36-0400\n"
+"POT-Creation-Date: 2019-10-16 21:42-0400\n"
 "PO-Revision-Date: 2019-09-15 21:05+0000\n"
 "Last-Translator: b'  <admin@admin.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -53,10 +53,14 @@ msgstr "Должность"
 msgid "Position in the church"
 msgstr "Должность в церкви"
 
-#: people/models.py:35
+#: people/models.py:33
+msgid "About"
+msgstr "О"
+
+#: people/models.py:36
 msgid "Person"
 msgstr "Человек"
 
-#: people/models.py:36
+#: people/models.py:37
 msgid "People"
 msgstr "Люди"

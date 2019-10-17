@@ -1,6 +1,5 @@
-from whitenoise.middleware import WhiteNoiseMiddleware
-
 from django.conf import settings
+from whitenoise.middleware import WhiteNoiseMiddleware
 
 
 class StaticAndMediaMiddleware(WhiteNoiseMiddleware):

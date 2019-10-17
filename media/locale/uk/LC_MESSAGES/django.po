@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-10 08:37-0400\n"
+"POT-Creation-Date: 2019-10-16 21:42-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,11 +25,11 @@ msgstr ""
 msgid "media"
 msgstr ""
 
-#: media/models.py:59 media/models.py:107
+#: media/models.py:59 media/models.py:114
 msgid "Title"
 msgstr ""
 
-#: media/models.py:61 media/models.py:109
+#: media/models.py:61 media/models.py:116
 msgid "Object ID"
 msgstr ""
 
@@ -37,7 +37,7 @@ msgstr ""
 msgid "Track ID"
 msgstr ""
 
-#: media/models.py:71 media/models.py:113
+#: media/models.py:71 media/models.py:120
 msgid "Thumbnail URL"
 msgstr ""
 
@@ -49,35 +49,35 @@ msgstr ""
 msgid "SoundCloud Assets"
 msgstr ""
 
-#: media/models.py:116
+#: media/models.py:123
 msgid "YouTube Asset"
 msgstr ""
 
-#: media/models.py:117
+#: media/models.py:124
 msgid "YouTube Assets"
 msgstr ""
 
-#: media/utils.py:20
+#: media/utils.py:25
 #, python-format
 msgid "This field does match expected pattern %(pattern)s."
 msgstr ""
 
-#: media/utils.py:28
+#: media/utils.py:37
 #, python-format
 msgid "Could not connect to %(service)s to validate %(field)s."
 msgstr ""
 
-#: media/utils.py:32
+#: media/utils.py:41
 #, python-format
 msgid "%(service)s %(field)s not found."
 msgstr ""
 
-#: media/utils.py:37
+#: media/utils.py:46
 #, python-format
 msgid "Could not validate %(field)s due to %(service)s error."
 msgstr ""
 
-#: media/utils.py:44
+#: media/utils.py:56
 #, python-format
 msgid "Could not validate %(field)s due to invalid response from %(service)s."
 msgstr ""

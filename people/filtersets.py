@@ -23,12 +23,5 @@ class PersonFilterSet(ModelFilterSet):
                     "regex",
                 ]
             },
-            "position": {
-                "lookups": [
-                    "exact",
-                    "iexact",
-                    "in",
-                    "isnull",
-                ]
-            },
+            "position": {"lookups": ["exact", "iexact", "in", "isnull"]},
         }
