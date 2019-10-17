@@ -30,7 +30,7 @@ class Settings(LoggingMixin, SecurityMixin, DjangoMixin, Configuration):
 
     MIDDLEWARE_RESPONSE_AFTER_MINIFY = [
         "corsheaders.middleware.CorsMiddleware",
-        "firstrussian.middleware.locale.LocaleMiddleware"
+        "firstrussian.middleware.locale.LocaleMiddleware",
     ]
 
     LANGUAGES = (("ru", _("Russian")), ("uk", _("Ukranian")), ("en", _("English")))

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-14 20:39-0400\n"
+"POT-Creation-Date: 2019-10-16 21:42-0400\n"
 "PO-Revision-Date: 2019-09-26 02:54+0000\n"
 "Last-Translator: b'  <admin@admin.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,18 +21,18 @@ msgstr ""
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 "X-Translated-Using: django-rosetta 0.9.3\n"
 
-#: firstrussian/admin.py:5 firstrussian/admin.py:6
+#: firstrussian/admin.py:6 firstrussian/admin.py:7
 msgid "First Russian Admin"
 msgstr "Первой Русской Админ"
 
-#: firstrussian/settings/__init__.py:34
+#: firstrussian/settings/__init__.py:36
 msgid "Russian"
 msgstr "Русский"
 
-#: firstrussian/settings/__init__.py:34
+#: firstrussian/settings/__init__.py:36
 msgid "Ukranian"
 msgstr "Украинский"
 
-#: firstrussian/settings/__init__.py:34
+#: firstrussian/settings/__init__.py:36
 msgid "English"
 msgstr "Английский"

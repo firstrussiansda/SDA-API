@@ -219,6 +219,6 @@ class DjangoMixin:
         return {"SHOW_TOOLBAR_CALLBACK": lambda r: self.DEVELOPMENT}
 
     REST_FRAMEWORK = {
-        "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+        "DEFAULT_PAGINATION_CLASS": "firstrussian.pagination.PageNumberPagination",
         "PAGE_SIZE": 100,
     }

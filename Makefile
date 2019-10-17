@@ -22,7 +22,8 @@ firstrussian/static:
 	mkdir firstrussian/static
 
 makemessages: firstrussian/static  ## update translation files
-	./manage.py makemessages -a -i *.py
+	./manage.py makemessages -l ru
+	./manage.py makemessages -l uk
 
 compilemessages: firstrussian/static  ## compile translation files
 	./manage.py compilemessages

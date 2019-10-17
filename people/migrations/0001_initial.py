@@ -1,7 +1,7 @@
 import uuid
 
-from django.db import migrations, models
 import django_auxilium.models.fields.files
+from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
