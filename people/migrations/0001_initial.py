@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import uuid
 
 import django_auxilium.models.fields.files

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-16 21:42-0400\n"
+"POT-Creation-Date: 2019-11-01 23:21-0400\n"
 "PO-Revision-Date: 2019-09-15 21:17+0000\n"
 "Last-Translator: b'  <admin@admin.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,42 +21,46 @@ msgstr ""
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 "X-Translated-Using: django-rosetta 0.9.3\n"
 
-#: events/apps.py:7
+#: events/apps.py:8
 msgid "events"
 msgstr "события"
 
-#: events/models.py:11
+#: events/models.py:12
 msgid "Title"
 msgstr "Название"
 
-#: events/models.py:12
+#: events/models.py:13
 msgid "Description"
 msgstr "Описание"
 
-#: events/models.py:14
+#: events/models.py:15
 msgid "Date"
 msgstr "Дата"
 
-#: events/models.py:15
+#: events/models.py:16
 msgid "Is Featured"
 msgstr "Избранное"
 
-#: events/models.py:17
+#: events/models.py:19
 msgid "Image URL"
 msgstr "URL Фотографии"
 
-#: events/models.py:19
+#: events/models.py:21
+msgid "You can find many free images at unsplash.com"
+msgstr ""
+
+#: events/models.py:24
 msgid "Image Description"
 msgstr "Описание Фотографии"
 
-#: events/models.py:22
+#: events/models.py:27
 msgid "Location Name"
 msgstr "Место Расположения"
 
-#: events/models.py:25
+#: events/models.py:30
 msgid "Event"
 msgstr "Событие"
 
-#: events/models.py:26
+#: events/models.py:31
 msgid "Events"
 msgstr "События"

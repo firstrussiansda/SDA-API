@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from url_filter.filtersets import ModelFilterSet
 
 from .models import Event

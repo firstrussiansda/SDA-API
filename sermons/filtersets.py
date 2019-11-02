@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from media.filtersets import SoundCloudAssetFilterSet, YouTubeAssetFilterSet
 from people.filtersets import PersonFilterSet
 from url_filter.filtersets import ModelFilterSet

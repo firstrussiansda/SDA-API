@@ -1,5 +1,5 @@
+# -*- coding: utf-8 -*-
 from rest_framework import viewsets
-
 from url_filter.integrations.drf_coreapi import CoreAPIURLFilterBackend
 
 from .filtersets import SoundCloudAssetFilterSet, YouTubeAssetFilterSet

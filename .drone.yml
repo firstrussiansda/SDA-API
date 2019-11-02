@@ -1,5 +1,18 @@
 ---
 kind: pipeline
+name: tests
+
+steps:
+- name: lint
+  image: miki725/pre-commit
+
+trigger:
+  ref:
+    - refs/heads/master
+    - refs/pull/*/head
+
+---
+kind: pipeline
 name: deploy
 
 steps:
@@ -80,6 +93,6 @@ get:
 
 ---
 kind: signature
-hmac: a638efa7157e5eecf928cef2f4a7d06fc28f7e8fb5d12b63a019d0cbb6485da3
+hmac: ed6d9d1cf34a1a99241959a60da0a70b1285350cec0970360c0de3412e19297c
 
 ...
