@@ -3,10 +3,33 @@ from media.filtersets import SoundCloudAssetFilterSet, YouTubeAssetFilterSet
 from people.filtersets import PersonFilterSet
 from url_filter.filtersets import ModelFilterSet
 
-from .models import Sermon
+from .models import Sermon, SermonSeries
 
 
-class SermonFilterSet(ModelFilterSet):
+class JustSermonSeriesFilterSet(ModelFilterSet):
+    class Meta:
+        model = SermonSeries
+        fields = ["id", "title"]
+        extra_kwargs = {
+            "id": {"lookups": ["exact", "in"]},
+            "title": {
+                "lookups": [
+                    "contains",
+                    "endswith",
+                    "exact",
+                    "icontains",
+                    "iendswith",
+                    "iexact",
+                    "in",
+                    "iregex",
+                    "istartswith",
+                    "regex",
+                ]
+            },
+        }
+
+
+class JustSermonFilterSet(ModelFilterSet):
     speakers = PersonFilterSet()
     soundcloud_assets = SoundCloudAssetFilterSet()
     youtube_assets = YouTubeAssetFilterSet()
@@ -48,3 +71,11 @@ class SermonFilterSet(ModelFilterSet):
                 ]
             },
         }
+
+
+class SermonSeriesFilterSet(JustSermonSeriesFilterSet):
+    sermons = JustSermonFilterSet()
+
+
+class SermonFilterSet(JustSermonFilterSet):
+    series = JustSermonSeriesFilterSet()
