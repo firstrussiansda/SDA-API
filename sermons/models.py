@@ -1,9 +1,9 @@
+# -*- coding: utf-8 -*-
 import uuid
 
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django_auxilium.models import BaseModel
-
 from media.models import SoundCloudAsset, YouTubeAsset
 from people.models import Person
 

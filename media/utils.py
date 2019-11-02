@@ -1,4 +1,4 @@
-import re
+# -*- coding: utf-8 -*-
 from dataclasses import dataclass
 
 import requests

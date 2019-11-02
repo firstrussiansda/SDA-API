@@ -1,7 +1,8 @@
+# -*- coding: utf-8 -*-
 import re
 
 import requests
-from django.db import migrations, models
+from django.db import migrations
 
 
 def derive_track_id(apps, schema_editor):

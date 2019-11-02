@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import uuid
 
 from django.db import models
@@ -14,7 +15,11 @@ class Event(BaseModel):
     date = models.DateField(_("Date"), null=True)
     is_featured = models.BooleanField(_("Is Featured"), default=False)
 
-    image_url = models.URLField(_("Image URL"), max_length=512, blank=True)
+    image_url = models.URLField(
+        _("Image URL"),
+        max_length=512,
+        help_text=_("You can find many free images at unsplash.com"),
+    )
     image_description = models.CharField(
         _("Image Description"), max_length=512, blank=True
     )

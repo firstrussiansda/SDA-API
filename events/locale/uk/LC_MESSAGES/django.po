@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-16 21:42-0400\n"
+"POT-Creation-Date: 2019-11-01 23:21-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,42 +21,46 @@ msgstr ""
 "100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
-#: events/apps.py:7
+#: events/apps.py:8
 msgid "events"
 msgstr ""
 
-#: events/models.py:11
+#: events/models.py:12
 msgid "Title"
 msgstr ""
 
-#: events/models.py:12
+#: events/models.py:13
 msgid "Description"
 msgstr ""
 
-#: events/models.py:14
+#: events/models.py:15
 msgid "Date"
 msgstr ""
 
-#: events/models.py:15
+#: events/models.py:16
 msgid "Is Featured"
 msgstr ""
 
-#: events/models.py:17
+#: events/models.py:19
 msgid "Image URL"
 msgstr ""
 
-#: events/models.py:19
+#: events/models.py:21
+msgid "You can find many free images at unsplash.com"
+msgstr ""
+
+#: events/models.py:24
 msgid "Image Description"
 msgstr ""
 
-#: events/models.py:22
+#: events/models.py:27
 msgid "Location Name"
 msgstr ""
 
-#: events/models.py:25
+#: events/models.py:30
 msgid "Event"
 msgstr ""
 
-#: events/models.py:26
+#: events/models.py:31
 msgid "Events"
 msgstr ""

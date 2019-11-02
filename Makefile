@@ -18,6 +18,9 @@ init:  ## install all deps
 	pipenv install $(PIPENV_FLAGS)
 	pip freeze
 
+lint:
+	pre-commit run --all-files
+
 firstrussian/static:
 	mkdir firstrussian/static
 

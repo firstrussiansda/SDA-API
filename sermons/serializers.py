@@ -1,7 +1,7 @@
-from rest_framework import serializers
-
+# -*- coding: utf-8 -*-
 from media.serializers import SoundCloudAssetSerializer, YouTubeAssetSerializer
 from people.serializers import PersonSerializer
+from rest_framework import serializers
 
 from .models import Sermon
 

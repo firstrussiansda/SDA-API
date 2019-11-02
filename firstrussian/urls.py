@@ -1,15 +1,15 @@
+# -*- coding: utf-8 -*-
+import events.urls
+import media.urls
+import people.urls
 import rosetta.urls
+import sermons.urls
 from django.conf import settings
 from django.contrib import admin
 from django.urls import include, path, re_path
 from django.views.generic import RedirectView
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
-
-import events.urls
-import media.urls
-import people.urls
-import sermons.urls
 
 
 schema_view = get_schema_view(

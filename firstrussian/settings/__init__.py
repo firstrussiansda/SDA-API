@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/dev/ref/settings/
