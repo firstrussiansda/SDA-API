@@ -46,4 +46,4 @@ class SermonSerializer(JustSermonSerializer):
 
 
 class SermonYearMonthsSerializer(serializers.Serializer):
-    year = serializers.ListField(child=serializers.IntegerField())
+    year = serializers.DictField(child=serializers.IntegerField())

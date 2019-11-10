@@ -25,16 +25,18 @@ class SermonSeries(BaseModel):
 
 
 class SermonAggregateManager(models.Manager):
-    def all_year_months(self) -> typing.Dict[int, typing.List[int]]:
+    def all_year_months(self) -> typing.Dict[int, typing.Dict[int, int]]:
         results = (
             self.get_queryset()
             .values("date__year", "date__month")
-            .distinct()
+            .annotate(models.Count("date__month"))
             .order_by("date")
         )
-        data: typing.Dict[int, typing.List[int]] = defaultdict(list)
+        data: typing.Dict[int, typing.Dict[int, int]] = defaultdict(
+            lambda: {i: 0 for i in range(1, 13)}
+        )
         for i in results:
-            data[i["date__year"]].append(i["date__month"])
+            data[i["date__year"]][i["date__month"]] = i["date__month__count"]
         return data
 
 
