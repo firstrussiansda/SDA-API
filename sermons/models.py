@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
+import typing
 import uuid
+from collections import defaultdict
 
 from django.db import models
 from django.utils.translation import gettext_lazy as _
@@ -20,6 +22,20 @@ class SermonSeries(BaseModel):
 
     def __str__(self):
         return f"{self.title}"
+
+
+class SermonAggregateManager(models.Manager):
+    def all_year_months(self) -> typing.Dict[int, typing.List[int]]:
+        results = (
+            self.get_queryset()
+            .values("date__year", "date__month")
+            .distinct()
+            .order_by("date")
+        )
+        data: typing.Dict[int, typing.List[int]] = defaultdict(list)
+        for i in results:
+            data[i["date__year"]].append(i["date__month"])
+        return data
 
 
 class Sermon(BaseModel):
@@ -56,6 +72,8 @@ class Sermon(BaseModel):
         verbose_name=YouTubeAsset._meta.verbose_name_plural,
         blank=True,
     )
+
+    objects = SermonAggregateManager()
 
     class Meta:
         verbose_name = _("Sermon")
