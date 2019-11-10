@@ -43,3 +43,7 @@ class SermonSerializer(JustSermonSerializer):
 
     class Meta(JustSermonSerializer.Meta):
         fields = JustSermonSerializer.Meta.fields + ["series"]
+
+
+class SermonYearMonthsSerializer(serializers.Serializer):
+    year = serializers.ListField(child=serializers.IntegerField())

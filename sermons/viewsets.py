@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
+from drf_yasg import openapi
+from drf_yasg.utils import swagger_auto_schema
 from rest_framework import viewsets
+from rest_framework.response import Response
 from url_filter.integrations.drf_coreapi import CoreAPIURLFilterBackend
 
 from .filtersets import SermonFilterSet, SermonSeriesFilterSet
@@ -8,6 +11,7 @@ from .serializers import (
     JustSermonSeriesSerializer,
     SermonSerializer,
     SermonSeriesSerializer,
+    SermonYearMonthsSerializer,
 )
 
 
@@ -52,3 +56,18 @@ class SermonViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = SermonSerializer
     filter_backends = [CoreAPIURLFilterBackend]
     filter_class = SermonFilterSet
+
+
+class SermonYearMonthsViewSet(viewsets.ViewSet):
+    serializer_class = SermonYearMonthsSerializer
+
+    @swagger_auto_schema(
+        responses={
+            200: openapi.Response(
+                "Get all years and months of available sermons",
+                SermonYearMonthsSerializer,
+            )
+        }
+    )
+    def list(self, request, *args, **kwargs):
+        return Response(Sermon.objects.all_year_months())
