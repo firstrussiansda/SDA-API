@@ -30,14 +30,13 @@ class SermonAggregateManager(models.Manager):
             self.get_queryset()
             .values("date__year", "date__month")
             .annotate(models.Count("date__month"))
-            .order_by("date")
         )
         data: typing.Dict[int, typing.Dict[int, int]] = defaultdict(
             lambda: {i: 0 for i in range(1, 13)}
         )
         for i in results:
             data[i["date__year"]][i["date__month"]] = i["date__month__count"]
-        return data
+        return dict(sorted(data.items()))
 
 
 class Sermon(BaseModel):
