@@ -64,7 +64,7 @@ class SermonYearMonthsViewSet(viewsets.ViewSet):
     @swagger_auto_schema(
         responses={
             200: openapi.Response(
-                "Get all years and months of available sermons",
+                "Get count of sermons for specific year and month",
                 SermonYearMonthsSerializer,
             )
         }
