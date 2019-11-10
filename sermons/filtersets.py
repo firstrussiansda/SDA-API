@@ -6,6 +6,10 @@ from url_filter.filtersets import ModelFilterSet
 from .models import Sermon, SermonSeries
 
 
+class JustPersonFilterSet(PersonFilterSet):
+    pass
+
+
 class JustSermonSeriesFilterSet(ModelFilterSet):
     class Meta:
         model = SermonSeries
@@ -30,7 +34,6 @@ class JustSermonSeriesFilterSet(ModelFilterSet):
 
 
 class JustSermonFilterSet(ModelFilterSet):
-    speakers = PersonFilterSet()
     soundcloud_assets = SoundCloudAssetFilterSet()
     youtube_assets = YouTubeAssetFilterSet()
 
@@ -73,24 +76,21 @@ class JustSermonFilterSet(ModelFilterSet):
         }
 
 
+class JustSermonSpeakerFilterSet(JustSermonFilterSet):
+    speakers = JustPersonFilterSet()
+
+
 class SermonSeriesFilterSet(JustSermonSeriesFilterSet):
-    sermons = JustSermonFilterSet()
+    sermons = JustSermonSpeakerFilterSet()
 
 
-class SermonFilterSet(JustSermonFilterSet):
+class SermonFilterSet(JustSermonSpeakerFilterSet):
+    series = JustSermonSeriesFilterSet()
+
+
+class SermonNoSpeakerFilterSet(JustSermonFilterSet):
     series = JustSermonSeriesFilterSet()
 
 
 # Inject sermons filter to people filterset
-
-
-class SermonForPeopleFilterSet(ModelFilterSet):
-    class Meta:
-        model = Sermon
-        fields = ["id"]
-        extra_kwargs = {
-            "id": {"lookups": ["isnull"]},
-        }
-
-
-PersonFilterSet._declared_filters["sermons"] = SermonForPeopleFilterSet()
+PersonFilterSet._declared_filters["sermons"] = SermonNoSpeakerFilterSet()
