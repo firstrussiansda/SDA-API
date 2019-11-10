@@ -79,3 +79,18 @@ class SermonSeriesFilterSet(JustSermonSeriesFilterSet):
 
 class SermonFilterSet(JustSermonFilterSet):
     series = JustSermonSeriesFilterSet()
+
+
+# Inject sermons filter to people filterset
+
+
+class SermonForPeopleFilterSet(ModelFilterSet):
+    class Meta:
+        model = Sermon
+        fields = ["id"]
+        extra_kwargs = {
+            "id": {"lookups": ["isnull"]},
+        }
+
+
+PersonFilterSet._declared_filters["sermons"] = SermonForPeopleFilterSet()
