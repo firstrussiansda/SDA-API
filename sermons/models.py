@@ -24,17 +24,17 @@ class SermonSeries(BaseModel):
         return f"{self.title}"
 
 
-class SermonAggregateManager(models.Manager):
-    def all_year_months(self) -> typing.Dict[int, typing.Dict[int, int]]:
-        results = (
-            self.get_queryset()
-            .values("date__year", "date__month")
-            .annotate(models.Count("date__month"))
+class SermonQuerySet(models.QuerySet):
+    def with_year_months(self):
+        return self.values("date__year", "date__month").annotate(
+            models.Count("date__month")
         )
+
+    def all_year_months(self) -> typing.Dict[int, typing.Dict[int, int]]:
         data: typing.Dict[int, typing.Dict[int, int]] = defaultdict(
             lambda: {i: 0 for i in range(1, 13)}
         )
-        for i in results:
+        for i in self:
             data[i["date__year"]][i["date__month"]] = i["date__month__count"]
         return dict(sorted(data.items()))
 
@@ -74,7 +74,7 @@ class Sermon(BaseModel):
         blank=True,
     )
 
-    objects = SermonAggregateManager()
+    objects = models.Manager.from_queryset(SermonQuerySet)()
 
     class Meta:
         verbose_name = _("Sermon")

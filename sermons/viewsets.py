@@ -2,8 +2,10 @@
 from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework import viewsets
+from rest_framework.decorators import action
 from rest_framework.response import Response
 from url_filter.integrations.drf_coreapi import CoreAPIURLFilterBackend
+from utils.drf_yasg import NoPaginationInspector
 
 from .filtersets import SermonFilterSet, SermonSeriesFilterSet
 from .models import Sermon, SermonSeries
@@ -57,17 +59,17 @@ class SermonViewSet(viewsets.ReadOnlyModelViewSet):
     filter_backends = [CoreAPIURLFilterBackend]
     filter_class = SermonFilterSet
 
-
-class SermonYearMonthsViewSet(viewsets.ViewSet):
-    serializer_class = SermonYearMonthsSerializer
-
     @swagger_auto_schema(
+        paginator_inspectors=[NoPaginationInspector],
         responses={
             200: openapi.Response(
                 "Get count of sermons for specific year and month",
                 SermonYearMonthsSerializer,
             )
-        }
+        },
     )
-    def list(self, request, *args, **kwargs):
-        return Response(Sermon.objects.all_year_months())
+    @action(detail=False)
+    def year_months(self, request, *args, **kwargs):
+        return Response(
+            self.filter_queryset(Sermon.objects.with_year_months()).all_year_months()
+        )
