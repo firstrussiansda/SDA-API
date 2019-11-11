@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from media.filtersets import SoundCloudAssetFilterSet, YouTubeAssetFilterSet
 from people.filtersets import PersonFilterSet
+from url_filter.constants import StrictMode
 from url_filter.filtersets import ModelFilterSet
 
 from .models import Sermon, SermonSeries
@@ -11,11 +12,13 @@ class JustPersonFilterSet(PersonFilterSet):
 
 
 class JustSermonSeriesFilterSet(ModelFilterSet):
+    default_strict_mode = StrictMode.fail
+
     class Meta:
         model = SermonSeries
         fields = ["id", "title"]
         extra_kwargs = {
-            "id": {"lookups": ["exact", "in"]},
+            "id": {"lookups": ["exact", "in", "isnull"]},
             "title": {
                 "lookups": [
                     "contains",
@@ -34,6 +37,8 @@ class JustSermonSeriesFilterSet(ModelFilterSet):
 
 
 class JustSermonFilterSet(ModelFilterSet):
+    default_strict_mode = StrictMode.fail
+
     soundcloud_assets = SoundCloudAssetFilterSet()
     youtube_assets = YouTubeAssetFilterSet()
 
@@ -41,7 +46,7 @@ class JustSermonFilterSet(ModelFilterSet):
         model = Sermon
         fields = ["id", "title", "date"]
         extra_kwargs = {
-            "id": {"lookups": ["exact", "in"]},
+            "id": {"lookups": ["exact", "in", "isnull"]},
             "title": {
                 "lookups": [
                     "contains",

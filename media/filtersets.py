@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
+from url_filter.constants import StrictMode
 from url_filter.filtersets import ModelFilterSet
 
 from .models import SoundCloudAsset, YouTubeAsset
 
 
 class SoundCloudAssetFilterSet(ModelFilterSet):
+    default_strict_mode = StrictMode.fail
+
     class Meta:
         model = SoundCloudAsset
         fields = ["id", "title"]
@@ -28,6 +31,8 @@ class SoundCloudAssetFilterSet(ModelFilterSet):
 
 
 class YouTubeAssetFilterSet(ModelFilterSet):
+    default_strict_mode = StrictMode.fail
+
     class Meta:
         model = YouTubeAsset
         fields = ["id", "title"]
