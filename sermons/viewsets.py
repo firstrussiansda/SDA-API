@@ -68,7 +68,7 @@ class SermonViewSet(viewsets.ReadOnlyModelViewSet):
             )
         },
     )
-    @action(detail=False)
+    @action(detail=False, url_path="year-months")
     def year_months(self, request, *args, **kwargs):
         return Response(
             self.filter_queryset(Sermon.objects.with_year_months()).all_year_months()
