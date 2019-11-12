@@ -17,4 +17,6 @@ class EventSerializer(serializers.HyperlinkedModelSerializer):
             "image_url",
             "image_description",
             "location_name",
+            "location_map_name",
+            "location_google_maps_url",
         ]

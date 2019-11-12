@@ -8,6 +8,7 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.http import QueryDict
 from django.utils.http import urlquote
+from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 from django_auxilium.models import BaseModel
 
@@ -30,8 +31,6 @@ class BaseAsset(DirtyFieldsMixin, BaseModel):
 
     @property
     def html_object_link(self):
-        from django.utils.safestring import mark_safe
-
         return mark_safe(
             f'<a target="blank" href={self.object_url}>{self.object_url}</a>'
         )
