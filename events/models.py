@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
+import typing
 import uuid
 
 from django.db import models
+from django.utils.http import urlquote
+from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 from django_auxilium.models import BaseModel
 
@@ -25,6 +28,15 @@ class Event(BaseModel):
     )
 
     location_name = models.CharField(_("Location Name"), max_length=256, blank=True)
+    location_map_name = models.CharField(
+        _("Location Map Name"),
+        max_length=255,
+        blank=True,
+        help_text=_(
+            "Location name to search in Google Maps. "
+            "Should be unique to result in single search result."
+        ),
+    )
 
     class Meta:
         verbose_name = _("Event")
@@ -32,3 +44,21 @@ class Event(BaseModel):
 
     def __str__(self):
         return f"{self.date} - {self.title}"
+
+    @property
+    def location_google_maps_url(self) -> typing.Optional[str]:
+        return (
+            f"https://google.com/maps/place/{urlquote(self.location_map_name)}"
+            if self.location_map_name
+            else None
+        )
+
+    @property
+    def location_google_maps_link(self) -> str:
+        return (
+            mark_safe(
+                f'<a target="blank" href={self.location_google_maps_url}>{self.location_google_maps_url}</a>'
+            )
+            if self.location_google_maps_url
+            else ""
+        )
