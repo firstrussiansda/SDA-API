@@ -18,27 +18,23 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     # apis
-    path("api/", include(events.urls.router.urls)),
-    path("api/", include(sermons.urls.router.urls)),
-    path("api/", include(people.urls.router.urls)),
-    path("api/", include(media.urls.router.urls)),
-    path(
-        "api/", RedirectView.as_view(pattern_name="schema-swagger-ui"), name="api-root"
-    ),
+    path("", include(events.urls.router.urls)),
+    path("", include(sermons.urls.router.urls)),
+    path("", include(people.urls.router.urls)),
+    path("", include(media.urls.router.urls)),
+    path("", RedirectView.as_view(pattern_name="schema-swagger-ui"), name="api-root"),
     # api docs
     re_path(
-        r"^api/swagger(?P<format>\.json)$",
+        r"^swagger(?P<format>\.json)$",
         schema_view.without_ui(cache_timeout=0),
         name="schema-json",
     ),
     path(
-        "api/swagger/",
+        "swagger/",
         schema_view.with_ui("swagger", cache_timeout=0),
         name="schema-swagger-ui",
     ),
-    path(
-        "api/redoc/", schema_view.with_ui("redoc", cache_timeout=0), name="schema-redoc"
-    ),
+    path("redoc/", schema_view.with_ui("redoc", cache_timeout=0), name="schema-redoc"),
     # admin
     path("admin/", admin.site.urls),
     path("rosetta/", include(rosetta.urls.urlpatterns)),
