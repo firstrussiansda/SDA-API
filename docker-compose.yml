@@ -14,7 +14,7 @@ services:
     networks:
       - app
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - ${PGDATA_VOLUME:-pgdata}:/var/lib/postgresql/data
 
   app:
     build:
@@ -34,4 +34,4 @@ services:
       - 8000:8000
     volumes:
       - $PWD:${MOUNT_PATH:-/tmp}
-      - media:/media
+      - ${MEDIA_VOLUME:-media}:/media
