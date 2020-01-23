@@ -1,5 +1,7 @@
 PIPENV_FLAGS ?= "--deploy --system"
 DJANGO_RUN ?= gunicorn
+DJANGO_STATIC_ROOT?=firstrussian/static
+DJANGO_MEDIA_ROOT?=firstrussian/media
 
 help:  ## show help
 	@grep -E '^[a-zA-Z_\-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
@@ -21,23 +23,26 @@ init:  ## install all deps
 lint:
 	pre-commit run --all-files
 
-firstrussian/static:
-	mkdir firstrussian/static
+$(DJANGO_STATIC_ROOT):
+	mkdir $(DJANGO_STATIC_ROOT)
 
-makemessages: firstrussian/static  ## update translation files
+$(DJANGO_MEDIA_ROOT):
+	mkdir $(DJANGO_MEDIA_ROOT)
+
+makemessages: $(DJANGO_STATIC_ROOT)  ## update translation files
 	./manage.py makemessages -l ru
 	./manage.py makemessages -l uk
 
-compilemessages: firstrussian/static  ## compile translation files
+compilemessages: $(DJANGO_STATIC_ROOT)  ## compile translation files
 	./manage.py compilemessages
 
-collectstatic: firstrussian/static  ## collect all staticfiles to a single location
+collectstatic: $(DJANGO_STATIC_ROOT)  ## collect all staticfiles to a single location
 	./manage.py collectstatic --no-input
 
-migrate: firstrussian/static  ## run all migrations
+migrate: $(DJANGO_STATIC_ROOT)  ## run all migrations
 	./manage.py migrate
 
-run: firstrussian/static compilemessages collectstatic migrate
+run: $(DJANGO_STATIC_ROOT) $(DJANGO_MEDIA_ROOT) compilemessages collectstatic migrate
 	if [ "$(DJANGO_RUN)" = "runserver" ]; \
 	then \
 		./manage.py runserver_plus 0.0.0.0:8000; \

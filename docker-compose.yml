@@ -5,7 +5,9 @@ networks:
 
 volumes:
   pgdata:
+  data:
   media:
+  certs:
 
 services:
   db:
@@ -15,6 +17,7 @@ services:
       - app
     volumes:
       - ${PGDATA_VOLUME:-pgdata}:/var/lib/postgresql/data
+    restart: always
 
   app:
     build:
@@ -31,7 +34,34 @@ services:
     networks:
       - app
     ports:
-      - 8000:8000
+      - ${APP_PUBLIC_PORT:-8000}:8000
     volumes:
       - $PWD:${MOUNT_PATH:-/tmp}
+      - data:/data
       - ${MEDIA_VOLUME:-media}:/media
+    restart: always
+
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    volumes:
+      - data:/data
+      - ${MEDIA_VOLUME:-media}:/media
+      - certs:/etc/letsencrypt
+    depends_on:
+      - app
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      - app
+    restart: always
+
+  certbot:
+    image: certbot/certbot
+    command: renew --must-staple --webroot --webroot-path=/data -v
+    volumes:
+      - data:/data
+      - ${MEDIA_VOLUME:-media}:/media
+      - certs:/etc/letsencrypt
