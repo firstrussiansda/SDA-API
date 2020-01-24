@@ -150,10 +150,10 @@ steps:
         s3 sync . $AWS_BACKUP_BUCKET
 
 trigger:
-  event:
-    - cron
   cron:
     - hourly
+  ref:
+    - refs/heads/master
 
 ---
 kind: secret
@@ -262,6 +262,6 @@ get:
 
 ---
 kind: signature
-hmac: 8f2ba4f67b83bd2715d88f3be3335b81ca8061d0e335ea405011e49d471d56b2
+hmac: 52b184683ac7a75cddbe59ee0635fccf7e87b15cc6ad655d983ab4a71ef839ce
 
 ...
