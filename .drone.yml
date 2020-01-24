@@ -82,6 +82,57 @@ trigger:
     - refs/heads/master
 
 ---
+kind: pipeline
+name: backup
+
+steps:
+- name: backup
+  image: docker/compose:1.24.1
+  environment:
+    DOCKER_TLS_VERIFY: 1
+    DOCKER_CERT_PATH: /tmp/docker-certs
+    DOCKER_MACHINE_NAME: firstrussianny
+    COMPOSE_PROJECT_NAME: sda-api
+    POSTGRES_DB:
+      from_secret: POSTGRES_DB
+    POSTGRES_PASSWORD:
+      from_secret: POSTGRES_PASSWORD
+    POSTGRES_USER:
+      from_secret: POSTGRES_USER
+    DOCKER_HOST:
+      from_secret: DOCKER_HOST
+    DOCKER_CA_CERT:
+      from_secret: DOCKER_CA_CERT
+    DOCKER_CLIENT_CERT:
+      from_secret: DOCKER_CLIENT_CERT
+    DOCKER_CLIENT_KEY:
+      from_secret: DOCKER_CLIENT_KEY
+    CERTBOT_EMAIL:
+      from_secret: CERTBOT_EMAIL
+  commands:
+    - mkdir -p $DOCKER_CERT_PATH
+    - printenv DOCKER_CA_CERT > $DOCKER_CERT_PATH/ca.pem
+    - printenv DOCKER_CLIENT_CERT > $DOCKER_CERT_PATH/cert.pem
+    - printenv DOCKER_CLIENT_KEY > $DOCKER_CERT_PATH/key.pem
+    - |
+      docker-compose run --rm \
+        -e "PGUSER=$POSTGRES_USER" \
+        -e "PGPASSWORD=$POSTGRES_PASSWORD" \
+        -e "PGDATABASE=$POSTGRES_DB" \
+        -v "/var/lib/docker-volumes/firstrussianny/backup:/backup" \
+        db \
+        pg_dump \
+          -h db \
+          --data-only \
+          --file=/backup/$(date -u +"%Y-%m-%dT%H-%M-%SZ").sql
+
+trigger:
+  event:
+    - cron
+  cron:
+    - hourly
+
+---
 kind: secret
 name: DJANGO_SITE_URL
 get:
@@ -160,6 +211,6 @@ get:
 
 ---
 kind: signature
-hmac: c52e9f0dd0e93e56acc6a38aa6c0d6a87a20211b66b6a2b31520cbc4c27f9b66
+hmac: b500807c852b27b71e4be587e7bcf2363018d5ce654912f5b2e5403df0080d4a
 
 ...
