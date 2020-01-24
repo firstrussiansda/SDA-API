@@ -140,20 +140,18 @@ steps:
           --data-only \
           --file=/backup/$(date -u +"%Y-%m-%dT%H-%M-%SZ").sql
     - |
-      docker run -it --rm \
+      docker run --rm \
         -v $BACKUP_VOLUME:/backups \
         -w /backups \
         -e AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION \
         -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
         -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
         mesosphere/aws-cli \
-        s3 sync . $AWS_BACKUP_BUCKET
+        s3 sync . s3://$AWS_BACKUP_BUCKET/
 
 trigger:
-  event:
-    - cron
-  cron:
-    - hourly
+  ref:
+    - refs/heads/master
 
 ---
 kind: secret
@@ -262,6 +260,6 @@ get:
 
 ---
 kind: signature
-hmac: 8f2ba4f67b83bd2715d88f3be3335b81ca8061d0e335ea405011e49d471d56b2
+hmac: 5d1c4790bbd320bf05d70126c54f9584bcfb9b1f3834932b4588d8882b02ab6e
 
 ...
