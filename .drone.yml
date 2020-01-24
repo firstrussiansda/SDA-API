@@ -114,6 +114,15 @@ steps:
       from_secret: DOCKER_CLIENT_KEY
     CERTBOT_EMAIL:
       from_secret: CERTBOT_EMAIL
+    AWS_ACCESS_KEY_ID:
+      from_secret: AWS_ACCESS_KEY_ID
+    AWS_DEFAULT_REGION:
+      from_secret: AWS_DEFAULT_REGION
+    AWS_SECRET_ACCESS_KEY:
+      from_secret: AWS_SECRET_ACCESS_KEY
+    AWS_BACKUP_BUCKET:
+      from_secret: AWS_BACKUP_BUCKET
+    BACKUP_VOLUME: /var/lib/docker-volumes/firstrussianny/backup
   commands:
     - mkdir -p $DOCKER_CERT_PATH
     - printenv DOCKER_CA_CERT > $DOCKER_CERT_PATH/ca.pem
@@ -124,12 +133,21 @@ steps:
         -e "PGUSER=$POSTGRES_USER" \
         -e "PGPASSWORD=$POSTGRES_PASSWORD" \
         -e "PGDATABASE=$POSTGRES_DB" \
-        -v "/var/lib/docker-volumes/firstrussianny/backup:/backup" \
+        -v "$BACKUP_VOLUME:/backup" \
         db \
         pg_dump \
           -h db \
           --data-only \
           --file=/backup/$(date -u +"%Y-%m-%dT%H-%M-%SZ").sql
+    - |
+      docker run -it --rm \
+        -v $BACKUP_VOLUME:/backups \
+        -w /backups \
+        -e AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION \
+        -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
+        -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
+        mesosphere/aws-cli \
+        s3 sync . $AWS_BACKUP_BUCKET
 
 trigger:
   event:
@@ -215,7 +233,35 @@ get:
   name: CERTBOT_EMAIL
 
 ---
+kind: secret
+name: AWS_ACCESS_KEY_ID
+get:
+  path: drone/data/firstrussianny/SDA-API
+  name: AWS_ACCESS_KEY_ID
+
+---
+kind: secret
+name: AWS_DEFAULT_REGION
+get:
+  path: drone/data/firstrussianny/SDA-API
+  name: AWS_DEFAULT_REGION
+
+---
+kind: secret
+name: AWS_SECRET_ACCESS_KEY
+get:
+  path: drone/data/firstrussianny/SDA-API
+  name: AWS_SECRET_ACCESS_KEY
+
+---
+kind: secret
+name: AWS_BACKUP_BUCKET
+get:
+  path: drone/data/firstrussianny/SDA-API
+  name: AWS_BACKUP_BUCKET
+
+---
 kind: signature
-hmac: f71a4eccaabe10047021c78b0e0616aeb3e8b12b8bf8e9685c52e7d5bfbfe7af
+hmac: 8f2ba4f67b83bd2715d88f3be3335b81ca8061d0e335ea405011e49d471d56b2
 
 ...
