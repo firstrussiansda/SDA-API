@@ -32,6 +32,14 @@ steps:
       from_secret: DJANGO_DATABASE_URL
     DJANGO_SECRET_KEY:
       from_secret: DJANGO_SECRET_KEY
+    DJANGO_AWS_ACCESS_KEY_ID:
+      from_secret: AWS_ACCESS_KEY_ID
+    DJANGO_AWS_S3_REGION_NAME:
+      from_secret: AWS_DEFAULT_REGION
+    DJANGO_AWS_SECRET_ACCESS_KEY:
+      from_secret: AWS_SECRET_ACCESS_KEY
+    DJANGO_AWS_STORAGE_BUCKET_NAME:
+      from_secret: AWS_MEDIA_BUCKET
     POSTGRES_DB:
       from_secret: POSTGRES_DB
     POSTGRES_PASSWORD:
@@ -83,8 +91,10 @@ steps:
 trigger:
   ref:
     - refs/heads/master
+    - refs/pull/*/head
   event:
     - push
+    - pull_request
 
 ---
 kind: pipeline
@@ -259,7 +269,14 @@ get:
   name: AWS_BACKUP_BUCKET
 
 ---
+kind: secret
+name: AWS_MEDIA_BUCKET
+get:
+  path: drone/data/firstrussianny/SDA-API
+  name: AWS_MEDIA_BUCKET
+
+---
 kind: signature
-hmac: 5d1c4790bbd320bf05d70126c54f9584bcfb9b1f3834932b4588d8882b02ab6e
+hmac: 18ad2b4cb46756cbbcc730d8af8093965437acdeb46387c5213ebf2f739b1bf2
 
 ...

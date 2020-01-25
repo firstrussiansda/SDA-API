@@ -26,7 +26,13 @@ class DjangoMixin:
         return f"{self.PROJECT_NAME}.urls"
 
     STATIC_URL = "/static/"
-    MEDIA_URL = "/media/"
+
+    @property
+    def MEDIA_URL(self) -> str:
+        if self.DEVELOPMENT:
+            return "/media/"
+        else:
+            return f"https://s3.amazonaws.com/{self.AWS_STORAGE_BUCKET_NAME}/"
 
     STATIC_ROOT = values.PathValue(
         default=str(pathlib.Path(PROJECT_PATH) / PROJECT_NAME / "static")
@@ -34,6 +40,26 @@ class DjangoMixin:
     MEDIA_ROOT = values.PathValue(
         default=str(pathlib.Path(PROJECT_PATH) / PROJECT_NAME / "media")
     )
+
+    @property
+    def STATICFILES_STORAGE(self) -> str:
+        if self.DEVELOPMENT:
+            return "django.contrib.staticfiles.storage.StaticFilesStorage"
+        else:
+            return "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
+
+    @property
+    def DEFAULT_FILE_STORAGE(self) -> str:
+        if self.DEVELOPMENT:
+            return "django.core.files.storage.FileSystemStorage"
+        else:
+            return "storages.backends.s3boto3.S3Boto3Storage"
+
+    AWS_ACCESS_KEY_ID = values.Value()
+    AWS_SECRET_ACCESS_KEY = values.Value()
+    AWS_STORAGE_BUCKET_NAME = values.Value()
+    AWS_S3_REGION_NAME = values.Value()
+    AWS_DEFAULT_ACL = None
 
     @property
     def WSGI_APPLICATION(self) -> str:
