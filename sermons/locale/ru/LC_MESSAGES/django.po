@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-02 09:45-0400\n"
+"POT-Creation-Date: 2020-01-26 15:03-0500\n"
 "PO-Revision-Date: 2019-09-15 20:53+0000\n"
 "Last-Translator: b'  <admin@admin.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,36 +25,36 @@ msgstr ""
 msgid "sermons"
 msgstr "проповеди"
 
-#: sermons/models.py:14 sermons/models.py:28
+#: sermons/models.py:17 sermons/models.py:46
 msgid "Title"
 msgstr "Название"
 
-#: sermons/models.py:15 sermons/models.py:29
+#: sermons/models.py:18 sermons/models.py:47
 msgid "Description"
 msgstr "Описание"
 
-#: sermons/models.py:18 sermons/models.py:19
+#: sermons/models.py:21 sermons/models.py:22
 #, fuzzy
 #| msgid "Sermons"
 msgid "Sermon Series"
 msgstr "Проповеди"
 
-#: sermons/models.py:31
+#: sermons/models.py:49
 msgid "Date"
 msgstr "Дата"
 
-#: sermons/models.py:39
+#: sermons/models.py:57
 msgid "Series"
 msgstr ""
 
-#: sermons/models.py:43
+#: sermons/models.py:61
 msgid "Speakers"
 msgstr "Говорящие"
 
-#: sermons/models.py:61
+#: sermons/models.py:87
 msgid "Sermon"
 msgstr "Проповедь"
 
-#: sermons/models.py:62
+#: sermons/models.py:88
 msgid "Sermons"
 msgstr "Проповеди"

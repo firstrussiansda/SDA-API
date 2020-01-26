@@ -91,10 +91,8 @@ steps:
 trigger:
   ref:
     - refs/heads/master
-    - refs/pull/*/head
   event:
     - push
-    - pull_request
 
 ---
 kind: pipeline
@@ -277,6 +275,6 @@ get:
 
 ---
 kind: signature
-hmac: 18ad2b4cb46756cbbcc730d8af8093965437acdeb46387c5213ebf2f739b1bf2
+hmac: 304a633457992d9f00c1dc6323491473f4026fcc209b81cfe5cb9c05c4abaeb8
 
 ...

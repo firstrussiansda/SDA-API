@@ -8,7 +8,12 @@ from .models import Sermon, SermonSeries
 class SermonInline(admin.StackedInline):
     model = Sermon
     extra = 1
-    filter_horizontal = ["speakers", "soundcloud_assets", "youtube_assets"]
+    filter_horizontal = [
+        "speakers",
+        "soundcloud_assets",
+        "youtube_assets",
+        "attachments",
+    ]
 
 
 @admin.register(SermonSeries)
@@ -30,5 +35,11 @@ class SermonOptions(TranslationAdmin):
         "speakers",
         "soundcloud_assets",
         "youtube_assets",
+        "attachments",
     ]
-    filter_horizontal = ["speakers", "soundcloud_assets", "youtube_assets"]
+    filter_horizontal = [
+        "speakers",
+        "soundcloud_assets",
+        "youtube_assets",
+        "attachments",
+    ]

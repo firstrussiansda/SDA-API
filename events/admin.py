@@ -17,5 +17,9 @@ class EventOptions(TranslationAdmin):
         "location_name",
         "location_map_name",
         "location_google_maps_link",
+        "attachments",
     ]
     readonly_fields = ["location_google_maps_link"]
+    filter_horizontal = [
+        "attachments",
+    ]

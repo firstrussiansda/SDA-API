@@ -7,6 +7,7 @@ from django.utils.http import urlquote
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 from django_auxilium.models import BaseModel
+from files.models import Attachment
 
 
 class Event(BaseModel):
@@ -36,6 +37,13 @@ class Event(BaseModel):
             "Location name to search in Google Maps. "
             "Should be unique to result in single search result."
         ),
+    )
+
+    attachments = models.ManyToManyField(
+        Attachment,
+        related_name="events",
+        verbose_name=Attachment._meta.verbose_name_plural,
+        blank=True,
     )
 
     class Meta:

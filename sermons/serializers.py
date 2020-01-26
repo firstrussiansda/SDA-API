@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from files.serializers import AttachmentSerializer
 from media.serializers import SoundCloudAssetSerializer, YouTubeAssetSerializer
 from people.serializers import PersonSerializer
 from rest_framework import serializers
@@ -16,6 +17,7 @@ class JustSermonSerializer(serializers.HyperlinkedModelSerializer):
     speakers = PersonSerializer(many=True)
     soundcloud_assets = SoundCloudAssetSerializer(many=True)
     youtube_assets = YouTubeAssetSerializer(many=True)
+    attachments = AttachmentSerializer(many=True)
 
     class Meta:
         model = Sermon
@@ -28,6 +30,7 @@ class JustSermonSerializer(serializers.HyperlinkedModelSerializer):
             "speakers",
             "soundcloud_assets",
             "youtube_assets",
+            "attachments",
         ]
 
 
