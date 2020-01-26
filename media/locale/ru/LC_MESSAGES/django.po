@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-02 09:45-0400\n"
+"POT-Creation-Date: 2020-01-26 15:03-0500\n"
 "PO-Revision-Date: 2019-09-15 21:14+0000\n"
 "Last-Translator: b'  <admin@admin.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,35 +25,35 @@ msgstr ""
 msgid "media"
 msgstr "записи"
 
-#: media/models.py:60 media/models.py:115
+#: media/models.py:59 media/models.py:114
 msgid "Title"
 msgstr "Название"
 
-#: media/models.py:62 media/models.py:117
+#: media/models.py:61 media/models.py:116
 msgid "Object ID"
 msgstr "Идентификатор Ссылки"
 
-#: media/models.py:67
+#: media/models.py:66
 msgid "Track ID"
 msgstr "Идентификатор Аудиозаписи"
 
-#: media/models.py:72 media/models.py:121
+#: media/models.py:71 media/models.py:120
 msgid "Thumbnail URL"
 msgstr "URL Фотографии"
 
-#: media/models.py:75
+#: media/models.py:74
 msgid "SoundCloud Asset"
 msgstr "SoundCloud Ссылка"
 
-#: media/models.py:76
+#: media/models.py:75
 msgid "SoundCloud Assets"
 msgstr "SoundCloud Ссылки"
 
-#: media/models.py:124
+#: media/models.py:123
 msgid "YouTube Asset"
 msgstr "YouTube Ссылка"
 
-#: media/models.py:125
+#: media/models.py:124
 msgid "YouTube Assets"
 msgstr "YouTube Ссылки"
 

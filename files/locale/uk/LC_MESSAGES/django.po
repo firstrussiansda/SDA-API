@@ -21,56 +21,26 @@ msgstr ""
 "100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
-#: events/apps.py:8
-msgid "events"
+#: files/apps.py:8
+msgid "files"
 msgstr ""
 
-#: events/models.py:16
-msgid "Title"
+#: files/models.py:13
+msgid "Name"
 msgstr ""
 
-#: events/models.py:17
-msgid "Description"
+#: files/models.py:15
+msgid "File"
 msgstr ""
 
-#: events/models.py:19
-msgid "Date"
+#: files/models.py:18
+msgid "Attachment file"
 msgstr ""
 
-#: events/models.py:20
-msgid "Is Featured"
+#: files/models.py:22
+msgid "Attachment"
 msgstr ""
 
-#: events/models.py:23
-msgid "Image URL"
-msgstr ""
-
-#: events/models.py:25
-msgid "You can find many free images at unsplash.com"
-msgstr ""
-
-#: events/models.py:28
-msgid "Image Description"
-msgstr ""
-
-#: events/models.py:31
-msgid "Location Name"
-msgstr ""
-
-#: events/models.py:33
-msgid "Location Map Name"
-msgstr ""
-
-#: events/models.py:37
-msgid ""
-"Location name to search in Google Maps. Should be unique to result in single "
-"search result."
-msgstr ""
-
-#: events/models.py:50
-msgid "Event"
-msgstr ""
-
-#: events/models.py:51
-msgid "Events"
+#: files/models.py:23
+msgid "Attachments"
 msgstr ""

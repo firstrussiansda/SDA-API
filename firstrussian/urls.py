@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 import events.urls
+import files.urls
 import media.urls
 import people.urls
 import rosetta.urls
 import sermons.urls
 from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path, re_path
 from django.views.generic import RedirectView
@@ -22,6 +24,7 @@ urlpatterns = [
     path("", include(sermons.urls.router.urls)),
     path("", include(people.urls.router.urls)),
     path("", include(media.urls.router.urls)),
+    path("", include(files.urls.router.urls)),
     path("", RedirectView.as_view(pattern_name="schema-swagger-ui"), name="api-root"),
     # api docs
     re_path(
@@ -39,6 +42,9 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("rosetta/", include(rosetta.urls.urlpatterns)),
 ]
+
+if settings.DEVELOPMENT:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if "debug_toolbar" in settings.INSTALLED_APPS:
     import debug_toolbar

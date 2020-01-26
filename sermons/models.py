@@ -6,6 +6,7 @@ from collections import defaultdict
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django_auxilium.models import BaseModel
+from files.models import Attachment
 from media.models import SoundCloudAsset, YouTubeAsset
 from people.models import Person
 
@@ -71,6 +72,12 @@ class Sermon(BaseModel):
         YouTubeAsset,
         related_name="sermons",
         verbose_name=YouTubeAsset._meta.verbose_name_plural,
+        blank=True,
+    )
+    attachments = models.ManyToManyField(
+        Attachment,
+        related_name="sermons",
+        verbose_name=Attachment._meta.verbose_name_plural,
         blank=True,
     )
 

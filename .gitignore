@@ -4,6 +4,7 @@
 celerybeat-schedule
 *.swp
 static
+firstrussian/media
 
 # C extensions
 *.so

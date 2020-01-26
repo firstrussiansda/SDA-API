@@ -14,6 +14,7 @@ class Settings(LoggingMixin, SecurityMixin, DjangoMixin, Configuration):
     INSTALLED_APPS_PROJECT = [
         # apps
         "events",
+        "files",
         "media",
         "people",
         "sermons",
