@@ -29,3 +29,7 @@ class PersonFilterSet(ModelFilterSet):
             },
             "position": {"lookups": ["exact", "iexact", "in", "isnull"]},
         }
+
+
+class JustPersonFilterSet(PersonFilterSet):
+    pass

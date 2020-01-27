@@ -5,6 +5,7 @@ import media.urls
 import people.urls
 import rosetta.urls
 import sermons.urls
+import thoughts.urls
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
@@ -25,6 +26,7 @@ urlpatterns = [
     path("", include(people.urls.router.urls)),
     path("", include(media.urls.router.urls)),
     path("", include(files.urls.router.urls)),
+    path("", include(thoughts.urls.router.urls)),
     path("", RedirectView.as_view(pattern_name="schema-swagger-ui"), name="api-root"),
     # api docs
     re_path(

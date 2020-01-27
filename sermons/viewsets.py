@@ -42,6 +42,7 @@ class SermonSeriesViewSet(viewsets.ReadOnlyModelViewSet):
                 "sermons__speakers",
                 "sermons__soundcloud_assets",
                 "sermons__youtube_assets",
+                "sermons__attachments",
             ).all()
         return qs
 
@@ -50,7 +51,7 @@ class SermonViewSet(viewsets.ReadOnlyModelViewSet):
     model = Sermon
     queryset = (
         Sermon.objects.prefetch_related(
-            "speakers", "soundcloud_assets", "youtube_assets"
+            "speakers", "soundcloud_assets", "youtube_assets", "attachments",
         )
         .order_by("-date")
         .all()

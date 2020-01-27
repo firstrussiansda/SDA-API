@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-26 15:03-0500\n"
+"POT-Creation-Date: 2020-01-26 19:52-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,38 +21,29 @@ msgstr ""
 "100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
-#: sermons/apps.py:8
 msgid "sermons"
 msgstr ""
 
-#: sermons/models.py:17 sermons/models.py:46
 msgid "Title"
 msgstr ""
 
-#: sermons/models.py:18 sermons/models.py:47
 msgid "Description"
 msgstr ""
 
-#: sermons/models.py:21 sermons/models.py:22
 msgid "Sermon Series"
 msgstr ""
 
-#: sermons/models.py:49
 msgid "Date"
 msgstr ""
 
-#: sermons/models.py:57
 msgid "Series"
 msgstr ""
 
-#: sermons/models.py:61
 msgid "Speakers"
 msgstr ""
 
-#: sermons/models.py:87
 msgid "Sermon"
 msgstr ""
 
-#: sermons/models.py:88
 msgid "Sermons"
 msgstr ""

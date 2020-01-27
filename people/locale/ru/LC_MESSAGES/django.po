@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-26 15:03-0500\n"
+"POT-Creation-Date: 2020-01-26 19:52-0500\n"
 "PO-Revision-Date: 2019-09-15 21:05+0000\n"
 "Last-Translator: b'  <admin@admin.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,46 +21,35 @@ msgstr ""
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 "X-Translated-Using: django-rosetta 0.9.3\n"
 
-#: people/apps.py:8
 msgid "people"
 msgstr "люди"
 
-#: people/models.py:19
 msgid "Name"
 msgstr "Имя"
 
-#: people/models.py:22
 msgid "Email"
 msgstr "Email"
 
-#: people/models.py:22
 msgid "Gravatar email for profile image"
 msgstr "Gravatar email для профиля"
 
-#: people/models.py:25
 msgid "Profile Image"
 msgstr "Фотография"
 
-#: people/models.py:28
 msgid "Uploaded profile image"
 msgstr "Фотография для профиля"
 
-#: people/models.py:32
 msgid "Position"
 msgstr "Должность"
 
-#: people/models.py:32
 msgid "Position in the church"
 msgstr "Должность в церкви"
 
-#: people/models.py:34
 msgid "About"
 msgstr "О"
 
-#: people/models.py:37
 msgid "Person"
 msgstr "Человек"
 
-#: people/models.py:38
 msgid "People"
 msgstr "Люди"

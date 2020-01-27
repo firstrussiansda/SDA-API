@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-26 15:03-0500\n"
+"POT-Creation-Date: 2020-01-26 19:52-0500\n"
 "PO-Revision-Date: 2019-09-15 21:17+0000\n"
 "Last-Translator: b'  <admin@admin.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,58 +21,45 @@ msgstr ""
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 "X-Translated-Using: django-rosetta 0.9.3\n"
 
-#: events/apps.py:8
 msgid "events"
 msgstr "события"
 
-#: events/models.py:16
 msgid "Title"
 msgstr "Название"
 
-#: events/models.py:17
 msgid "Description"
 msgstr "Описание"
 
-#: events/models.py:19
 msgid "Date"
 msgstr "Дата"
 
-#: events/models.py:20
 msgid "Is Featured"
 msgstr "Избранное"
 
-#: events/models.py:23
 msgid "Image URL"
 msgstr "URL Фотографии"
 
-#: events/models.py:25
 msgid "You can find many free images at unsplash.com"
 msgstr ""
 
-#: events/models.py:28
 msgid "Image Description"
 msgstr "Описание Фотографии"
 
-#: events/models.py:31
 msgid "Location Name"
 msgstr "Место Расположения"
 
-#: events/models.py:33
 #, fuzzy
 #| msgid "Location Name"
 msgid "Location Map Name"
 msgstr "Место Расположения"
 
-#: events/models.py:37
 msgid ""
 "Location name to search in Google Maps. Should be unique to result in single "
 "search result."
 msgstr ""
 
-#: events/models.py:50
 msgid "Event"
 msgstr "Событие"
 
-#: events/models.py:51
 msgid "Events"
 msgstr "События"

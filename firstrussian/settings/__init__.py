@@ -18,11 +18,13 @@ class Settings(LoggingMixin, SecurityMixin, DjangoMixin, Configuration):
         "media",
         "people",
         "sermons",
+        "thoughts",
         # project
         "firstrussian",
     ]
     INSTALLED_APPS_OTHER = [
         # 3rd party apps
+        "ckeditor",
         "corsheaders",
         "drf_yasg",
         "modeltranslation",
