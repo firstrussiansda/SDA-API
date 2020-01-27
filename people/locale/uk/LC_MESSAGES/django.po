@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-26 15:03-0500\n"
+"POT-Creation-Date: 2020-01-26 19:52-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,46 +21,35 @@ msgstr ""
 "100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
-#: people/apps.py:8
 msgid "people"
 msgstr ""
 
-#: people/models.py:19
 msgid "Name"
 msgstr ""
 
-#: people/models.py:22
 msgid "Email"
 msgstr ""
 
-#: people/models.py:22
 msgid "Gravatar email for profile image"
 msgstr ""
 
-#: people/models.py:25
 msgid "Profile Image"
 msgstr ""
 
-#: people/models.py:28
 msgid "Uploaded profile image"
 msgstr ""
 
-#: people/models.py:32
 msgid "Position"
 msgstr ""
 
-#: people/models.py:32
 msgid "Position in the church"
 msgstr ""
 
-#: people/models.py:34
 msgid "About"
 msgstr ""
 
-#: people/models.py:37
 msgid "Person"
 msgstr ""
 
-#: people/models.py:38
 msgid "People"
 msgstr ""

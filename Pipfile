@@ -30,6 +30,7 @@ psycopg2-binary = "*"
 requests = "*"
 structlog = "*"
 whitenoise = "*"
+django-ckeditor = "*"
 
 [dev-packages]
 black = "==19.3b0"

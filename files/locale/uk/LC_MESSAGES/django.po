@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-26 15:03-0500\n"
+"POT-Creation-Date: 2020-01-26 19:52-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,26 +21,20 @@ msgstr ""
 "100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
-#: files/apps.py:8
 msgid "files"
 msgstr ""
 
-#: files/models.py:13
 msgid "Name"
 msgstr ""
 
-#: files/models.py:15
 msgid "File"
 msgstr ""
 
-#: files/models.py:18
 msgid "Attachment file"
 msgstr ""
 
-#: files/models.py:22
 msgid "Attachment"
 msgstr ""
 
-#: files/models.py:23
 msgid "Attachments"
 msgstr ""

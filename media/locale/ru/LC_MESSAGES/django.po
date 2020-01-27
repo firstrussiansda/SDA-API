@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-26 15:03-0500\n"
+"POT-Creation-Date: 2020-01-26 19:52-0500\n"
 "PO-Revision-Date: 2019-09-15 21:14+0000\n"
 "Last-Translator: b'  <admin@admin.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,63 +21,49 @@ msgstr ""
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 "X-Translated-Using: django-rosetta 0.9.3\n"
 
-#: media/apps.py:8
 msgid "media"
 msgstr "записи"
 
-#: media/models.py:59 media/models.py:114
 msgid "Title"
 msgstr "Название"
 
-#: media/models.py:61 media/models.py:116
 msgid "Object ID"
 msgstr "Идентификатор Ссылки"
 
-#: media/models.py:66
 msgid "Track ID"
 msgstr "Идентификатор Аудиозаписи"
 
-#: media/models.py:71 media/models.py:120
 msgid "Thumbnail URL"
 msgstr "URL Фотографии"
 
-#: media/models.py:74
 msgid "SoundCloud Asset"
 msgstr "SoundCloud Ссылка"
 
-#: media/models.py:75
 msgid "SoundCloud Assets"
 msgstr "SoundCloud Ссылки"
 
-#: media/models.py:123
 msgid "YouTube Asset"
 msgstr "YouTube Ссылка"
 
-#: media/models.py:124
 msgid "YouTube Assets"
 msgstr "YouTube Ссылки"
 
-#: media/utils.py:24
 #, python-format
 msgid "This field does match expected pattern %(pattern)s."
 msgstr ""
 
-#: media/utils.py:34
 #, python-format
 msgid "Could not connect to %(service)s to validate %(field)s."
 msgstr ""
 
-#: media/utils.py:38
 #, python-format
 msgid "%(service)s %(field)s not found."
 msgstr ""
 
-#: media/utils.py:43
 #, python-format
 msgid "Could not validate %(field)s due to %(service)s error."
 msgstr ""
 
-#: media/utils.py:53
 #, python-format
 msgid "Could not validate %(field)s due to invalid response from %(service)s."
 msgstr ""

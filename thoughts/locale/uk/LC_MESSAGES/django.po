@@ -21,49 +21,23 @@ msgstr ""
 "100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
-msgid "media"
+msgid "thoughts"
 msgstr ""
 
 msgid "Title"
 msgstr ""
 
-msgid "Object ID"
+msgid "Description"
 msgstr ""
 
-msgid "Track ID"
+msgid "Thought"
 msgstr ""
 
-msgid "Thumbnail URL"
+msgid "Date"
 msgstr ""
 
-msgid "SoundCloud Asset"
+msgid "Authors"
 msgstr ""
 
-msgid "SoundCloud Assets"
-msgstr ""
-
-msgid "YouTube Asset"
-msgstr ""
-
-msgid "YouTube Assets"
-msgstr ""
-
-#, python-format
-msgid "This field does match expected pattern %(pattern)s."
-msgstr ""
-
-#, python-format
-msgid "Could not connect to %(service)s to validate %(field)s."
-msgstr ""
-
-#, python-format
-msgid "%(service)s %(field)s not found."
-msgstr ""
-
-#, python-format
-msgid "Could not validate %(field)s due to %(service)s error."
-msgstr ""
-
-#, python-format
-msgid "Could not validate %(field)s due to invalid response from %(service)s."
+msgid "Thoughts"
 msgstr ""

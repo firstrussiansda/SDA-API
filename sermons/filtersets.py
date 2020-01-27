@@ -1,14 +1,11 @@
 # -*- coding: utf-8 -*-
+from files.filtersets import AttachmentFilterSet
 from media.filtersets import SoundCloudAssetFilterSet, YouTubeAssetFilterSet
-from people.filtersets import PersonFilterSet
+from people.filtersets import JustPersonFilterSet, PersonFilterSet
 from url_filter.constants import StrictMode
 from url_filter.filtersets import ModelFilterSet
 
 from .models import Sermon, SermonSeries
-
-
-class JustPersonFilterSet(PersonFilterSet):
-    pass
 
 
 class JustSermonSeriesFilterSet(ModelFilterSet):
@@ -41,6 +38,7 @@ class JustSermonFilterSet(ModelFilterSet):
 
     soundcloud_assets = SoundCloudAssetFilterSet()
     youtube_assets = YouTubeAssetFilterSet()
+    attachments = AttachmentFilterSet()
 
     class Meta:
         model = Sermon
