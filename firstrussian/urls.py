@@ -20,13 +20,21 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
-    # apis
+    # apis in root
     path("", include(events.urls.router.urls)),
     path("", include(sermons.urls.router.urls)),
     path("", include(people.urls.router.urls)),
     path("", include(media.urls.router.urls)),
     path("", include(files.urls.router.urls)),
     path("", include(thoughts.urls.router.urls)),
+    # apis
+    path("api/", include(events.urls.router.urls)),
+    path("api/", include(sermons.urls.router.urls)),
+    path("api/", include(people.urls.router.urls)),
+    path("api/", include(media.urls.router.urls)),
+    path("api/", include(files.urls.router.urls)),
+    path("api/", include(thoughts.urls.router.urls)),
+    # redirect swagger
     path("", RedirectView.as_view(pattern_name="schema-swagger-ui"), name="api-root"),
     # api docs
     re_path(
