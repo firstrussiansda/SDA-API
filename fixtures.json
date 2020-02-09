@@ -1,0 +1,803 @@
+[
+  {
+    "fields": {
+      "attachments": [
+        "55a49182-821a-47b0-8c6f-656fb6986275"
+      ],
+      "created": "2020-02-02T16:48:48.994Z",
+      "date": "2021-01-01",
+      "description": "Description",
+      "description_en": "Description",
+      "description_ru": "\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435",
+      "description_uk": "\u041e\u043f\u0438\u0441\u0430\u043d\u043d\u044f",
+      "image_description": "Happy New Year",
+      "image_url": "https://images.unsplash.com/photo-1515995301990-280d37b2a8c9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80",
+      "is_featured": true,
+      "location_map_name": "1913 West 7 Street Brooklyn, NY",
+      "location_name": "Church",
+      "location_name_en": "Church",
+      "location_name_ru": "\u0426\u0435\u0440\u043a\u043e\u0432\u044c",
+      "location_name_uk": "\u0426\u0435\u0440\u043a\u0432\u0430",
+      "modified": "2020-02-02T16:50:06.972Z",
+      "title": "New Year",
+      "title_en": "New Year",
+      "title_ru": "\u041d\u043e\u0432\u044b\u0439 \u0413\u043e\u0434",
+      "title_uk": "\u041d\u043e\u0432\u0438\u0439 \u0420\u0456\u043a"
+    },
+    "model": "events.event",
+    "pk": "27a76b1d-d68b-409d-bcb2-96831b05266d"
+  },
+  {
+    "fields": {
+      "created": "2020-02-02T16:48:45.955Z",
+      "file": "files/attachments/0eca18848bf641a6860f6f95d82f9e7c.pdf",
+      "modified": "2020-02-02T16:48:45.955Z",
+      "name": "Attachment",
+      "name_en": "Attachment",
+      "name_ru": "\u041f\u0440\u0438\u043b\u043e\u0436\u0435\u043d\u0438\u0435",
+      "name_uk": "\u0412\u043a\u043b\u0430\u0434\u0435\u043d\u043d\u044f"
+    },
+    "model": "files.attachment",
+    "pk": "55a49182-821a-47b0-8c6f-656fb6986275"
+  },
+  {
+    "fields": {
+      "created": "2020-02-02T16:54:04.073Z",
+      "modified": "2020-02-02T16:54:04.073Z",
+      "object_id": "firstrussianny/ternii-i-kolyuchki",
+      "thumbnail_url": "https://i1.sndcdn.com/artworks-000638539306-pol9xg-t500x500.jpg",
+      "title": "\u0422\u0435\u0440\u043d\u0438\u0438 \u0438 \u041a\u043e\u043b\u044e\u0447\u043a\u0438 by First Russian NY",
+      "track_id": "712454023"
+    },
+    "model": "media.soundcloudasset",
+    "pk": "33a1b5ec-b0ec-4254-9334-e30120289827"
+  },
+  {
+    "fields": {
+      "created": "2020-02-02T16:56:50.852Z",
+      "modified": "2020-02-02T16:56:50.852Z",
+      "object_id": "I3O9YpMA97Q",
+      "thumbnail_url": "https://i.ytimg.com/vi/I3O9YpMA97Q/hqdefault.jpg",
+      "title": "[\u0421\u041b\u0423\u0416\u0415\u041d\u0418\u0415] - \u0422\u043e\u0440\u0436\u0435\u0441\u0442\u0432\u0435\u043d\u043d\u043e\u0435: \u0416\u0430\u0442\u0432\u0435\u043d\u043d\u043e\u0435 \u0438 \u0414\u0435\u043d\u044c \u0431\u043b\u0430\u0433\u043e\u0434\u0430\u0440\u0435\u043d\u0438\u044f 2016 - \u0427\u0430\u0441\u0442\u044c 2"
+    },
+    "model": "media.youtubeasset",
+    "pk": "003f45bb-bd38-4724-be67-6379ebcc1f8b"
+  },
+  {
+    "fields": {
+      "about": "Description",
+      "about_en": "Description",
+      "about_ru": "\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435",
+      "about_uk": "\u041e\u043f\u0438\u0441\u0430\u043d\u043d\u044f",
+      "created": "2020-02-02T16:53:21.623Z",
+      "gravatar_email": "person@example.com",
+      "modified": "2020-02-02T16:53:21.623Z",
+      "name": "Person",
+      "name_en": "Person",
+      "name_ru": "\u0427\u0435\u043b\u043e\u0432\u0435\u043a",
+      "name_uk": "\u0427\u043e\u043b\u043e\u0432\u0456\u043a",
+      "position": "Pastor",
+      "position_en": "Pastor",
+      "position_ru": "\u041f\u0430\u0441\u0442\u043e\u0440",
+      "position_uk": "\u041f\u0430\u0441\u0442\u043e\u0440",
+      "profile_image": "people/profiles_images/7c241cabd3e641569a3c50965db231a2.jpg"
+    },
+    "model": "people.person",
+    "pk": "015f87c8-8fdf-4258-a17f-ec7f0fe675cd"
+  },
+  {
+    "fields": {
+      "created": "2020-02-02T16:51:13.056Z",
+      "description": "Description",
+      "description_en": "Description",
+      "description_ru": "\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435",
+      "description_uk": "\u041e\u043f\u0438\u0441\u0430\u043d\u043d\u044f",
+      "modified": "2020-02-02T16:51:13.056Z",
+      "title": "Series",
+      "title_en": "Series",
+      "title_ru": "\u0421\u0435\u0440\u0438\u044f",
+      "title_uk": "\u0421\u0435\u0440\u0456\u044f"
+    },
+    "model": "sermons.sermonseries",
+    "pk": "a4ff6e52-30e2-45be-9c1d-e70354c84c92"
+  },
+  {
+    "fields": {
+      "attachments": [
+        "55a49182-821a-47b0-8c6f-656fb6986275"
+      ],
+      "created": "2020-02-02T16:56:57.120Z",
+      "date": "2020-02-01",
+      "description": "Description",
+      "description_en": "Description",
+      "description_ru": "\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435",
+      "description_uk": "\u041e\u043f\u0438\u0441\u0430\u043d\u043d\u044f",
+      "modified": "2020-02-02T16:56:57.121Z",
+      "series": "a4ff6e52-30e2-45be-9c1d-e70354c84c92",
+      "soundcloud_assets": [
+        "33a1b5ec-b0ec-4254-9334-e30120289827"
+      ],
+      "speakers": [
+        "015f87c8-8fdf-4258-a17f-ec7f0fe675cd"
+      ],
+      "title": "Sermon",
+      "title_en": "Sermon",
+      "title_ru": "\u041f\u0440\u043e\u043f\u043e\u0432\u0435\u0434\u044c",
+      "title_uk": "\u041f\u0440\u043e\u043f\u043e\u0432\u0456\u0434\u044c",
+      "youtube_assets": [
+        "003f45bb-bd38-4724-be67-6379ebcc1f8b"
+      ]
+    },
+    "model": "sermons.sermon",
+    "pk": "a3106542-e4ee-4231-884e-a45c454e7885"
+  },
+  {
+    "fields": {
+      "attachments": [
+        "55a49182-821a-47b0-8c6f-656fb6986275"
+      ],
+      "authors": [
+        "015f87c8-8fdf-4258-a17f-ec7f0fe675cd"
+      ],
+      "created": "2020-02-02T16:58:08.079Z",
+      "date": "2020-02-01",
+      "description": "Description",
+      "description_en": "Description",
+      "description_ru": "\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435",
+      "description_uk": "\u041e\u043f\u0438\u0441\u0430\u043d\u043d\u044f",
+      "modified": "2020-02-02T16:58:08.079Z",
+      "thought_html": "<p><strong>Description</strong></p>",
+      "thought_html_en": "<p><strong>Description</strong></p>",
+      "thought_html_ru": "<p><strong>\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435</strong></p>",
+      "thought_html_uk": "<p><strong>\u041e\u043f\u0438\u0441\u0430\u043d\u043d\u044f</strong></p>",
+      "title": "Thought",
+      "title_en": "Thought",
+      "title_ru": "\u041c\u044b\u0441\u043b\u044c",
+      "title_uk": "\u0414\u0443\u043c\u043a\u0430"
+    },
+    "model": "thoughts.thought",
+    "pk": "acd46667-c5fa-4008-a3bf-52583c3da99b"
+  },
+  {
+    "fields": {
+      "app_label": "events",
+      "model": "event"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "app_label": "files",
+      "model": "attachment"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "app_label": "media",
+      "model": "soundcloudasset"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "app_label": "media",
+      "model": "youtubeasset"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "app_label": "people",
+      "model": "person"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 5
+  },
+  {
+    "fields": {
+      "app_label": "sermons",
+      "model": "sermon"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 6
+  },
+  {
+    "fields": {
+      "app_label": "sermons",
+      "model": "sermonseries"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 7
+  },
+  {
+    "fields": {
+      "app_label": "thoughts",
+      "model": "thought"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 8
+  },
+  {
+    "fields": {
+      "app_label": "admin",
+      "model": "logentry"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 9
+  },
+  {
+    "fields": {
+      "app_label": "auth",
+      "model": "permission"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 10
+  },
+  {
+    "fields": {
+      "app_label": "auth",
+      "model": "group"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 11
+  },
+  {
+    "fields": {
+      "app_label": "auth",
+      "model": "user"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 12
+  },
+  {
+    "fields": {
+      "app_label": "contenttypes",
+      "model": "contenttype"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 13
+  },
+  {
+    "fields": {
+      "app_label": "sessions",
+      "model": "session"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 14
+  },
+  {
+    "fields": {
+      "expire_date": "2020-02-16T16:43:43.342Z",
+      "session_data": "NTYwMzliZGU4MjQ1YmI4OWI4OTMyMTc1MTMxMTI4MzEyMzFlYjYwMzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI4YTI3OGZmM2ZjZjA2YWNlNjBjYzNlNjJmMDk0ZjlkMjE5MjYzOGFjIn0="
+    },
+    "model": "sessions.session",
+    "pk": "3uo2n2ofxpckwgmylimjkkyuuioc7ze6"
+  },
+  {
+    "fields": {
+      "codename": "add_event",
+      "content_type": 1,
+      "name": "Can add Event"
+    },
+    "model": "auth.permission",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "codename": "change_event",
+      "content_type": 1,
+      "name": "Can change Event"
+    },
+    "model": "auth.permission",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "codename": "delete_event",
+      "content_type": 1,
+      "name": "Can delete Event"
+    },
+    "model": "auth.permission",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "codename": "view_event",
+      "content_type": 1,
+      "name": "Can view Event"
+    },
+    "model": "auth.permission",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "codename": "add_attachment",
+      "content_type": 2,
+      "name": "Can add Attachment"
+    },
+    "model": "auth.permission",
+    "pk": 5
+  },
+  {
+    "fields": {
+      "codename": "change_attachment",
+      "content_type": 2,
+      "name": "Can change Attachment"
+    },
+    "model": "auth.permission",
+    "pk": 6
+  },
+  {
+    "fields": {
+      "codename": "delete_attachment",
+      "content_type": 2,
+      "name": "Can delete Attachment"
+    },
+    "model": "auth.permission",
+    "pk": 7
+  },
+  {
+    "fields": {
+      "codename": "view_attachment",
+      "content_type": 2,
+      "name": "Can view Attachment"
+    },
+    "model": "auth.permission",
+    "pk": 8
+  },
+  {
+    "fields": {
+      "codename": "add_soundcloudasset",
+      "content_type": 3,
+      "name": "Can add SoundCloud Asset"
+    },
+    "model": "auth.permission",
+    "pk": 9
+  },
+  {
+    "fields": {
+      "codename": "change_soundcloudasset",
+      "content_type": 3,
+      "name": "Can change SoundCloud Asset"
+    },
+    "model": "auth.permission",
+    "pk": 10
+  },
+  {
+    "fields": {
+      "codename": "delete_soundcloudasset",
+      "content_type": 3,
+      "name": "Can delete SoundCloud Asset"
+    },
+    "model": "auth.permission",
+    "pk": 11
+  },
+  {
+    "fields": {
+      "codename": "view_soundcloudasset",
+      "content_type": 3,
+      "name": "Can view SoundCloud Asset"
+    },
+    "model": "auth.permission",
+    "pk": 12
+  },
+  {
+    "fields": {
+      "codename": "add_youtubeasset",
+      "content_type": 4,
+      "name": "Can add YouTube Asset"
+    },
+    "model": "auth.permission",
+    "pk": 13
+  },
+  {
+    "fields": {
+      "codename": "change_youtubeasset",
+      "content_type": 4,
+      "name": "Can change YouTube Asset"
+    },
+    "model": "auth.permission",
+    "pk": 14
+  },
+  {
+    "fields": {
+      "codename": "delete_youtubeasset",
+      "content_type": 4,
+      "name": "Can delete YouTube Asset"
+    },
+    "model": "auth.permission",
+    "pk": 15
+  },
+  {
+    "fields": {
+      "codename": "view_youtubeasset",
+      "content_type": 4,
+      "name": "Can view YouTube Asset"
+    },
+    "model": "auth.permission",
+    "pk": 16
+  },
+  {
+    "fields": {
+      "codename": "add_person",
+      "content_type": 5,
+      "name": "Can add Person"
+    },
+    "model": "auth.permission",
+    "pk": 17
+  },
+  {
+    "fields": {
+      "codename": "change_person",
+      "content_type": 5,
+      "name": "Can change Person"
+    },
+    "model": "auth.permission",
+    "pk": 18
+  },
+  {
+    "fields": {
+      "codename": "delete_person",
+      "content_type": 5,
+      "name": "Can delete Person"
+    },
+    "model": "auth.permission",
+    "pk": 19
+  },
+  {
+    "fields": {
+      "codename": "view_person",
+      "content_type": 5,
+      "name": "Can view Person"
+    },
+    "model": "auth.permission",
+    "pk": 20
+  },
+  {
+    "fields": {
+      "codename": "add_sermon",
+      "content_type": 6,
+      "name": "Can add Sermon"
+    },
+    "model": "auth.permission",
+    "pk": 21
+  },
+  {
+    "fields": {
+      "codename": "change_sermon",
+      "content_type": 6,
+      "name": "Can change Sermon"
+    },
+    "model": "auth.permission",
+    "pk": 22
+  },
+  {
+    "fields": {
+      "codename": "delete_sermon",
+      "content_type": 6,
+      "name": "Can delete Sermon"
+    },
+    "model": "auth.permission",
+    "pk": 23
+  },
+  {
+    "fields": {
+      "codename": "view_sermon",
+      "content_type": 6,
+      "name": "Can view Sermon"
+    },
+    "model": "auth.permission",
+    "pk": 24
+  },
+  {
+    "fields": {
+      "codename": "add_sermonseries",
+      "content_type": 7,
+      "name": "Can add Sermon Series"
+    },
+    "model": "auth.permission",
+    "pk": 25
+  },
+  {
+    "fields": {
+      "codename": "change_sermonseries",
+      "content_type": 7,
+      "name": "Can change Sermon Series"
+    },
+    "model": "auth.permission",
+    "pk": 26
+  },
+  {
+    "fields": {
+      "codename": "delete_sermonseries",
+      "content_type": 7,
+      "name": "Can delete Sermon Series"
+    },
+    "model": "auth.permission",
+    "pk": 27
+  },
+  {
+    "fields": {
+      "codename": "view_sermonseries",
+      "content_type": 7,
+      "name": "Can view Sermon Series"
+    },
+    "model": "auth.permission",
+    "pk": 28
+  },
+  {
+    "fields": {
+      "codename": "add_thought",
+      "content_type": 8,
+      "name": "Can add Thought"
+    },
+    "model": "auth.permission",
+    "pk": 29
+  },
+  {
+    "fields": {
+      "codename": "change_thought",
+      "content_type": 8,
+      "name": "Can change Thought"
+    },
+    "model": "auth.permission",
+    "pk": 30
+  },
+  {
+    "fields": {
+      "codename": "delete_thought",
+      "content_type": 8,
+      "name": "Can delete Thought"
+    },
+    "model": "auth.permission",
+    "pk": 31
+  },
+  {
+    "fields": {
+      "codename": "view_thought",
+      "content_type": 8,
+      "name": "Can view Thought"
+    },
+    "model": "auth.permission",
+    "pk": 32
+  },
+  {
+    "fields": {
+      "codename": "add_logentry",
+      "content_type": 9,
+      "name": "Can add log entry"
+    },
+    "model": "auth.permission",
+    "pk": 33
+  },
+  {
+    "fields": {
+      "codename": "change_logentry",
+      "content_type": 9,
+      "name": "Can change log entry"
+    },
+    "model": "auth.permission",
+    "pk": 34
+  },
+  {
+    "fields": {
+      "codename": "delete_logentry",
+      "content_type": 9,
+      "name": "Can delete log entry"
+    },
+    "model": "auth.permission",
+    "pk": 35
+  },
+  {
+    "fields": {
+      "codename": "view_logentry",
+      "content_type": 9,
+      "name": "Can view log entry"
+    },
+    "model": "auth.permission",
+    "pk": 36
+  },
+  {
+    "fields": {
+      "codename": "add_permission",
+      "content_type": 10,
+      "name": "Can add permission"
+    },
+    "model": "auth.permission",
+    "pk": 37
+  },
+  {
+    "fields": {
+      "codename": "change_permission",
+      "content_type": 10,
+      "name": "Can change permission"
+    },
+    "model": "auth.permission",
+    "pk": 38
+  },
+  {
+    "fields": {
+      "codename": "delete_permission",
+      "content_type": 10,
+      "name": "Can delete permission"
+    },
+    "model": "auth.permission",
+    "pk": 39
+  },
+  {
+    "fields": {
+      "codename": "view_permission",
+      "content_type": 10,
+      "name": "Can view permission"
+    },
+    "model": "auth.permission",
+    "pk": 40
+  },
+  {
+    "fields": {
+      "codename": "add_group",
+      "content_type": 11,
+      "name": "Can add group"
+    },
+    "model": "auth.permission",
+    "pk": 41
+  },
+  {
+    "fields": {
+      "codename": "change_group",
+      "content_type": 11,
+      "name": "Can change group"
+    },
+    "model": "auth.permission",
+    "pk": 42
+  },
+  {
+    "fields": {
+      "codename": "delete_group",
+      "content_type": 11,
+      "name": "Can delete group"
+    },
+    "model": "auth.permission",
+    "pk": 43
+  },
+  {
+    "fields": {
+      "codename": "view_group",
+      "content_type": 11,
+      "name": "Can view group"
+    },
+    "model": "auth.permission",
+    "pk": 44
+  },
+  {
+    "fields": {
+      "codename": "add_user",
+      "content_type": 12,
+      "name": "Can add user"
+    },
+    "model": "auth.permission",
+    "pk": 45
+  },
+  {
+    "fields": {
+      "codename": "change_user",
+      "content_type": 12,
+      "name": "Can change user"
+    },
+    "model": "auth.permission",
+    "pk": 46
+  },
+  {
+    "fields": {
+      "codename": "delete_user",
+      "content_type": 12,
+      "name": "Can delete user"
+    },
+    "model": "auth.permission",
+    "pk": 47
+  },
+  {
+    "fields": {
+      "codename": "view_user",
+      "content_type": 12,
+      "name": "Can view user"
+    },
+    "model": "auth.permission",
+    "pk": 48
+  },
+  {
+    "fields": {
+      "codename": "add_contenttype",
+      "content_type": 13,
+      "name": "Can add content type"
+    },
+    "model": "auth.permission",
+    "pk": 49
+  },
+  {
+    "fields": {
+      "codename": "change_contenttype",
+      "content_type": 13,
+      "name": "Can change content type"
+    },
+    "model": "auth.permission",
+    "pk": 50
+  },
+  {
+    "fields": {
+      "codename": "delete_contenttype",
+      "content_type": 13,
+      "name": "Can delete content type"
+    },
+    "model": "auth.permission",
+    "pk": 51
+  },
+  {
+    "fields": {
+      "codename": "view_contenttype",
+      "content_type": 13,
+      "name": "Can view content type"
+    },
+    "model": "auth.permission",
+    "pk": 52
+  },
+  {
+    "fields": {
+      "codename": "add_session",
+      "content_type": 14,
+      "name": "Can add session"
+    },
+    "model": "auth.permission",
+    "pk": 53
+  },
+  {
+    "fields": {
+      "codename": "change_session",
+      "content_type": 14,
+      "name": "Can change session"
+    },
+    "model": "auth.permission",
+    "pk": 54
+  },
+  {
+    "fields": {
+      "codename": "delete_session",
+      "content_type": 14,
+      "name": "Can delete session"
+    },
+    "model": "auth.permission",
+    "pk": 55
+  },
+  {
+    "fields": {
+      "codename": "view_session",
+      "content_type": 14,
+      "name": "Can view session"
+    },
+    "model": "auth.permission",
+    "pk": 56
+  },
+  {
+    "fields": {
+      "date_joined": "2020-02-02T16:43:07.604Z",
+      "email": "",
+      "first_name": "",
+      "groups": [],
+      "is_active": true,
+      "is_staff": true,
+      "is_superuser": true,
+      "last_login": "2020-02-02T16:43:43.326Z",
+      "last_name": "",
+      "password": "pbkdf2_sha256$150000$qTQ6tjLEVHSZ$VW/3pthDMvCrPPjL8d4iR0Js0unBl6M/sRqcFF98ERg=",
+      "user_permissions": [],
+      "username": "admin"
+    },
+    "model": "auth.user",
+    "pk": 1
+  }
+]

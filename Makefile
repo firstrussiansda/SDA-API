@@ -20,6 +20,12 @@ init:  ## install all deps
 	pipenv install $(PIPENV_FLAGS)
 	pip freeze
 
+dumpdata:  ## dump test data fixtures
+	./manage.py dumpdata --all --exclude=admin --indent=2 > fixtures.json
+
+loaddata:  ## load test data fixtures
+	./manage.py loaddata fixtures.json
+
 lint:
 	pre-commit run --all-files
 
