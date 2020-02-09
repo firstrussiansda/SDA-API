@@ -17,6 +17,8 @@ class ThoughtSerializer(serializers.HyperlinkedModelSerializer):
             "url",
             "title",
             "description",
+            "image_url",
+            "image_description",
             "thought_html",
             "date",
             "authors",

@@ -18,6 +18,15 @@ class Thought(BaseModel):
 
     date = models.DateField(_("Date"), null=True)
 
+    image_url = models.URLField(
+        _("Image URL"),
+        max_length=512,
+        help_text=_("You can find many free images at unsplash.com"),
+    )
+    image_description = models.CharField(
+        _("Image Description"), max_length=512, blank=True
+    )
+
     authors = models.ManyToManyField(
         Person, related_name="thoughts", verbose_name=_("Authors"), blank=True
     )
