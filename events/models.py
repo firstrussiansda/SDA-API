@@ -8,6 +8,7 @@ from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 from django_auxilium.models import BaseModel
 from files.models import Attachment
+from utils.url import remove_querystring
 
 
 class Event(BaseModel):
@@ -50,7 +51,15 @@ class Event(BaseModel):
         verbose_name = _("Event")
         verbose_name_plural = _("Events")
 
-    def __str__(self):
+    def clean(self) -> None:
+        self.clean_image_url()
+        super().clean()
+
+    def clean_image_url(self) -> None:
+        if self.image_url:
+            self.image_url = remove_querystring(self.image_url, hostname="unsplash.com")
+
+    def __str__(self) -> str:
         return f"{self.date} - {self.title}"
 
     @property
@@ -64,8 +73,11 @@ class Event(BaseModel):
     @property
     def location_google_maps_link(self) -> str:
         return (
-            mark_safe(
-                f'<a target="blank" href={self.location_google_maps_url}>{self.location_google_maps_url}</a>'
+            typing.cast(
+                str,
+                mark_safe(
+                    f'<a target="blank" href={self.location_google_maps_url}>{self.location_google_maps_url}</a>'
+                ),
             )
             if self.location_google_maps_url
             else ""
