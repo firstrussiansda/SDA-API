@@ -7,6 +7,7 @@ from django.utils.translation import gettext_lazy as _
 from django_auxilium.models import BaseModel
 from files.models import Attachment
 from people.models import Person
+from utils.url import remove_querystring
 
 
 class Thought(BaseModel):
@@ -42,5 +43,13 @@ class Thought(BaseModel):
         verbose_name = _("Thought")
         verbose_name_plural = _("Thoughts")
 
-    def __str__(self):
+    def clean(self) -> None:
+        self.clean_image_url()
+        super().clean()
+
+    def clean_image_url(self) -> None:
+        if self.image_url:
+            self.image_url = remove_querystring(self.image_url, hostname="unsplash.com")
+
+    def __str__(self) -> str:
         return f"{self.date} - {self.title}"
