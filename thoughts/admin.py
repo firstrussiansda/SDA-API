@@ -11,6 +11,8 @@ class ThoughtOptions(TranslationAdmin):
         "date",
         "title",
         "description",
+        "image_url",
+        "image_description",
         "thought_html",
         "authors",
         "attachments",

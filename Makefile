@@ -21,7 +21,12 @@ init:  ## install all deps
 	pip freeze
 
 dumpdata:  ## dump test data fixtures
-	./manage.py dumpdata --all --exclude=admin --indent=2 > fixtures.json
+	./manage.py dumpdata \
+		--all \
+		--exclude=admin \
+		--exclude=sessions \
+		--indent=2 \
+		> fixtures.json
 
 loaddata:  ## load test data fixtures
 	./manage.py loaddata fixtures.json
