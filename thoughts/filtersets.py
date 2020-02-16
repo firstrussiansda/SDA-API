@@ -15,9 +15,23 @@ class ThoughtFilterSet(ModelFilterSet):
 
     class Meta:
         model = Thought
-        fields = ["id", "title", "date"]
+        fields = ["id", "slug", "title", "date"]
         extra_kwargs = {
             "id": {"lookups": ["exact", "in", "isnull"]},
+            "slug": {
+                "lookups": [
+                    "contains",
+                    "endswith",
+                    "exact",
+                    "icontains",
+                    "iendswith",
+                    "iexact",
+                    "in",
+                    "iregex",
+                    "istartswith",
+                    "regex",
+                ]
+            },
             "title": {
                 "lookups": [
                     "contains",

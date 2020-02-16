@@ -9,6 +9,7 @@ from .models import Thought
 class ThoughtOptions(TranslationAdmin):
     fields = [
         "date",
+        "slug",
         "title",
         "description",
         "image_url",
