@@ -2,7 +2,9 @@
 import uuid
 
 from ckeditor.fields import RichTextField
+from django.core.exceptions import ValidationError
 from django.db import models
+from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 from django_auxilium.models import BaseModel
 from files.models import Attachment
@@ -12,6 +14,18 @@ from utils.url import remove_querystring
 
 class Thought(BaseModel):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+
+    slug = models.SlugField(
+        _("Slug"),
+        max_length=64,
+        blank=True,
+        unique=True,
+        db_index=True,
+        help_text=_(
+            "Thought title as it will appear in the URL. "
+            "Can only be alphanumeric with hyphens as word delimiter."
+        ),
+    )
 
     title = models.CharField(_("Title"), max_length=128)
     description = models.TextField(_("Description"), blank=True)
@@ -44,8 +58,18 @@ class Thought(BaseModel):
         verbose_name_plural = _("Thoughts")
 
     def clean(self) -> None:
+        self.clean_slug()
         self.clean_image_url()
         super().clean()
+
+    def clean_slug(self) -> None:
+        if not self.slug:
+            if self.title_en:
+                self.slug = slugify(self.title_en)
+            else:
+                raise ValidationError(
+                    {"slug": self._meta.get_field("slug").error_messages["blank"]}
+                )
 
     def clean_image_url(self) -> None:
         if self.image_url:
