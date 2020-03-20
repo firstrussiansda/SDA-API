@@ -13,6 +13,7 @@ from .mixins import DjangoMixin, LoggingMixin, SecurityMixin
 class Settings(LoggingMixin, SecurityMixin, DjangoMixin, Configuration):
     INSTALLED_APPS_PROJECT = [
         # apps
+        "announcements",
         "events",
         "files",
         "media",
