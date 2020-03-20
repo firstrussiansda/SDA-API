@@ -25,6 +25,7 @@ dumpdata:  ## dump test data fixtures
 		--all \
 		--exclude=admin \
 		--exclude=sessions \
+		--exclude=contenttypes \
 		--indent=2 \
 		> fixtures.json
 
