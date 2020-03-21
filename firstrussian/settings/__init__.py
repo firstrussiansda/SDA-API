@@ -7,10 +7,10 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 from configurations import Configuration, values
 from django.utils.translation import gettext_lazy as _
 
-from .mixins import DjangoMixin, LoggingMixin, SecurityMixin
+from .mixins import CKEditorMixin, DjangoMixin, LoggingMixin, SecurityMixin
 
 
-class Settings(LoggingMixin, SecurityMixin, DjangoMixin, Configuration):
+class Settings(LoggingMixin, SecurityMixin, DjangoMixin, CKEditorMixin, Configuration):
     INSTALLED_APPS_PROJECT = [
         # apps
         "announcements",
@@ -27,6 +27,7 @@ class Settings(LoggingMixin, SecurityMixin, DjangoMixin, Configuration):
         # 3rd party apps
         "ckeditor",
         "corsheaders",
+        "django_bleach",
         "drf_yasg",
         "modeltranslation",
         "rest_framework",
