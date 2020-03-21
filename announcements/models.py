@@ -36,7 +36,7 @@ class Announcement(BaseModel):
 
     is_featured = models.BooleanField(_("Is Featured"), default=False)
     alert_level = models.CharField(
-        _("Is Alert"), max_length=8, choices=ALERT_LEVELS, blank=True
+        _("Alert Level"), max_length=8, choices=ALERT_LEVELS, blank=True
     )
     start_date = models.DateField(_("Start Date"), null=True)
     end_date = models.DateField(_("End Date"), null=True)

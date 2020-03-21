@@ -80,7 +80,7 @@ class Migration(migrations.Migration):
                             ("DANGER", "Danger"),
                         ],
                         max_length=8,
-                        verbose_name="Is Alert",
+                        verbose_name="Alert Level",
                     ),
                 ),
                 ("start_date", models.DateField(null=True, verbose_name="Start Date")),
