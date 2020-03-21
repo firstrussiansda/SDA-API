@@ -20,15 +20,43 @@ msgstr ""
 "11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
 "100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
-
-msgid "First Russian Admin"
+msgid "announcements"
 msgstr ""
 
-msgid "Russian"
+msgid "Slug"
 msgstr ""
 
-msgid "Ukranian"
+msgid ""
+"Announcement title as it will appear in the URL. Can only be alphanumeric "
+"with hyphens as word delimiter."
 msgstr ""
 
-msgid "English"
+msgid "Title"
+msgstr ""
+
+msgid "Announcement"
+msgstr ""
+
+msgid "Is Featured"
+msgstr ""
+
+msgid "Alert Level"
+msgstr ""
+
+msgid "Start Date"
+msgstr ""
+
+msgid "End Date"
+msgstr ""
+
+msgid "Image URL"
+msgstr ""
+
+msgid "You can find many free images at unsplash.com"
+msgstr ""
+
+msgid "Image Description"
+msgstr ""
+
+msgid "Announcements"
 msgstr ""
