@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import uuid
 
-from ckeditor.fields import RichTextField
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.text import slugify
@@ -9,6 +8,7 @@ from django.utils.translation import gettext_lazy as _
 from django_auxilium.models import BaseModel
 from files.models import Attachment
 from people.models import Person
+from utils.models import BleachRichTextField
 from utils.url import remove_querystring
 
 
@@ -29,7 +29,7 @@ class Thought(BaseModel):
 
     title = models.CharField(_("Title"), max_length=128)
     description = models.TextField(_("Description"), blank=True)
-    thought_html = RichTextField(_("Thought"))
+    thought_html = BleachRichTextField(_("Thought"))
 
     date = models.DateField(_("Date"), null=True)
 

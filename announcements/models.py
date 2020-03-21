@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 import uuid
 
-from ckeditor.fields import RichTextField
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 from django_auxilium.models import BaseModel
 from files.models import Attachment
+from utils.models import BleachRichTextField
 from utils.url import remove_querystring
 
 
@@ -33,7 +33,7 @@ class Announcement(BaseModel):
     )
 
     title = models.CharField(_("Title"), max_length=128)
-    description = RichTextField(_("Announcement"))
+    description = BleachRichTextField(_("Announcement"))
 
     is_featured = models.BooleanField(_("Is Featured"), default=False)
     alert_level = models.CharField(
