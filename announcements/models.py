@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import uuid
 
+from ckeditor.fields import RichTextField
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.text import slugify
@@ -32,7 +33,7 @@ class Announcement(BaseModel):
     )
 
     title = models.CharField(_("Title"), max_length=128)
-    description = models.TextField(_("Description"), blank=True)
+    description = RichTextField(_("Announcement"))
 
     is_featured = models.BooleanField(_("Is Featured"), default=False)
     alert_level = models.CharField(
