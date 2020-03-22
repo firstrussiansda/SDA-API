@@ -9,5 +9,8 @@ class BleachRichTextField(BleachField, RichTextField):
     """
 
     def __init__(self, *args, **kwargs) -> None:
-        kwargs.setdefault("verbose_name", args[0])
+        try:
+            kwargs.setdefault("verbose_name", args[0])
+        except IndexError:  # in migrations
+            pass
         super().__init__(*args[1:], **kwargs)

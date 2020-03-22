@@ -13,21 +13,21 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="thought",
             name="thought_html",
-            field=utils.models.BleachRichTextField(),
+            field=utils.models.BleachRichTextField(verbose_name="Thought"),
         ),
         migrations.AlterField(
             model_name="thought",
             name="thought_html_en",
-            field=utils.models.BleachRichTextField(null=True),
+            field=utils.models.BleachRichTextField(null=True, verbose_name="Thought"),
         ),
         migrations.AlterField(
             model_name="thought",
             name="thought_html_ru",
-            field=utils.models.BleachRichTextField(null=True),
+            field=utils.models.BleachRichTextField(null=True, verbose_name="Thought"),
         ),
         migrations.AlterField(
             model_name="thought",
             name="thought_html_uk",
-            field=utils.models.BleachRichTextField(null=True),
+            field=utils.models.BleachRichTextField(null=True, verbose_name="Thought"),
         ),
     ]
