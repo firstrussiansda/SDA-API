@@ -33,7 +33,8 @@ class Announcement(BaseModel):
     )
 
     title = models.CharField(_("Title"), max_length=128)
-    description = BleachRichTextField(_("Announcement"))
+    description = BleachRichTextField(_("Description"), allowed_tags=["a"], blank=True)
+    announcement_html = BleachRichTextField(_("Announcement"))
 
     is_featured = models.BooleanField(_("Is Featured"), default=False)
     alert_level = models.CharField(

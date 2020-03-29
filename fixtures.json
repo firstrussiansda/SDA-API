@@ -2,6 +2,10 @@
   {
     "fields": {
       "alert_level": "DANGER",
+      "announcement_html": "Very important announcement",
+      "announcement_html_en": "Very important announcement",
+      "announcement_html_ru": "\u041e\u0447\u0435\u043d\u044c \u0432\u0430\u0436\u043d\u043e\u0435 \u043e\u0431\u044a\u044f\u0432\u043b\u0435\u043d\u0438\u0435",
+      "announcement_html_uk": "",
       "attachments": [
         "55a49182-821a-47b0-8c6f-656fb6986275"
       ],

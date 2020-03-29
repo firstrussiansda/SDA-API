@@ -6,4 +6,4 @@ from .models import Announcement
 
 @register(Announcement)
 class AnnouncementOptions(TranslationOptions):
-    fields = ["title", "description"]
+    fields = ["title", "description", "announcement_html"]
