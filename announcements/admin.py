@@ -11,6 +11,7 @@ class ThoughtOptions(TranslationAdmin):
         "slug",
         "title",
         "description",
+        "announcement_html",
         "is_featured",
         "alert_level",
         "start_date",

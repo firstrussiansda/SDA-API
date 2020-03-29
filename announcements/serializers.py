@@ -24,6 +24,7 @@ class AnnouncementSerializer(serializers.HyperlinkedModelSerializer):
             "slug",
             "title",
             "description",
+            "announcement_html",
             "image_url",
             "image_description",
             "is_featured",
