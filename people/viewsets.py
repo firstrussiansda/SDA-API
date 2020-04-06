@@ -9,7 +9,7 @@ from .serializers import PersonSerializer
 
 class PersonViewSet(viewsets.ReadOnlyModelViewSet):
     model = Person
-    queryset = Person.objects.all()
+    queryset = Person.objects.all().order_by("name")
     serializer_class = PersonSerializer
     filter_backends = [CoreAPIURLFilterBackend]
     filter_class = PersonFilterSet
