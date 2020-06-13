@@ -12,7 +12,10 @@ class Migration(migrations.Migration):
             name="location_map_name",
             field=models.CharField(
                 blank=True,
-                help_text="Location name to search in Google Maps. Should be unique to result in single search result.",
+                help_text=(
+                    "Location name to search in Google Maps. Should be unique to result"
+                    " in single search result."
+                ),
                 max_length=255,
                 verbose_name="Location Map Name",
             ),

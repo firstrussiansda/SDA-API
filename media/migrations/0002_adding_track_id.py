@@ -11,7 +11,9 @@ class Migration(migrations.Migration):
             model_name="soundcloudasset",
             name="track_id",
             field=models.CharField(
-                help_text="SoundCloud track ID. Extracted from a linked SoundCloud resource.",
+                help_text=(
+                    "SoundCloud track ID. Extracted from a linked SoundCloud resource."
+                ),
                 max_length=32,
                 editable=False,
                 verbose_name="Object ID",
@@ -22,7 +24,10 @@ class Migration(migrations.Migration):
             model_name="soundcloudasset",
             name="object_id",
             field=models.CharField(
-                help_text="SoundCloud object ID. Can be given as full SoundCloud URL from which ID is extracted.",
+                help_text=(
+                    "SoundCloud object ID. Can be given as full SoundCloud URL from"
+                    " which ID is extracted."
+                ),
                 max_length=128,
                 verbose_name="Object ID",
             ),

@@ -60,7 +60,10 @@ class SoundCloudAsset(BaseAsset):
     object_id = models.CharField(
         _("Object ID"),
         max_length=128,
-        help_text="SoundCloud object ID. Can be given as full SoundCloud URL from which ID is extracted.",
+        help_text=(
+            "SoundCloud object ID. Can be given as full SoundCloud URL from which ID is"
+            " extracted."
+        ),
     )
     track_id = models.CharField(
         _("Track ID"),
@@ -115,7 +118,10 @@ class YouTubeAsset(BaseAsset):
     object_id = models.CharField(
         _("Object ID"),
         max_length=128,
-        help_text="YouTube video ID. Can be given as full YouTube URL from which ID is extracted.",
+        help_text=(
+            "YouTube video ID. Can be given as full YouTube URL from which ID is"
+            " extracted."
+        ),
     )
     thumbnail_url = models.URLField(_("Thumbnail URL"), max_length=256, editable=False)
 

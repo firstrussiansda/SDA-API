@@ -31,7 +31,10 @@ class Migration(migrations.Migration):
                     "slug",
                     models.SlugField(
                         blank=True,
-                        help_text="Announcement title as it will appear in the URL. Can only be alphanumeric with hyphens as word delimiter.",
+                        help_text=(
+                            "Announcement title as it will appear in the URL. Can only"
+                            " be alphanumeric with hyphens as word delimiter."
+                        ),
                         max_length=64,
                         unique=True,
                         verbose_name="Slug",

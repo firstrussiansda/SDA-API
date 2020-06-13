@@ -76,7 +76,8 @@ class Event(BaseModel):
             typing.cast(
                 str,
                 mark_safe(
-                    f'<a target="blank" href={self.location_google_maps_url}>{self.location_google_maps_url}</a>'
+                    '<a target="blank"'
+                    f" href={self.location_google_maps_url}>{self.location_google_maps_url}</a>"
                 ),
             )
             if self.location_google_maps_url

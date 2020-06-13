@@ -35,7 +35,10 @@ class Migration(migrations.Migration):
                 (
                     "object_id",
                     models.CharField(
-                        help_text="SoundCloud track ID. Can be given as full SoundCloud URL from which ID is extracted.",
+                        help_text=(
+                            "SoundCloud track ID. Can be given as full SoundCloud URL"
+                            " from which ID is extracted."
+                        ),
                         max_length=128,
                         verbose_name="Object ID",
                     ),
@@ -76,7 +79,10 @@ class Migration(migrations.Migration):
                 (
                     "object_id",
                     models.CharField(
-                        help_text="YouTube video ID. Can be given as full YouTube URL from which ID is extracted.",
+                        help_text=(
+                            "YouTube video ID. Can be given as full YouTube URL from"
+                            " which ID is extracted."
+                        ),
                         max_length=128,
                         verbose_name="Object ID",
                     ),
