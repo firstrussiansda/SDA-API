@@ -16,8 +16,6 @@ class ThoughtOptions(TranslationAdmin):
         "alert_level",
         "start_date",
         "end_date",
-        "image_url",
-        "image_description",
         "attachments",
     ]
     filter_horizontal = [
