@@ -8,7 +8,6 @@ from django.utils.translation import gettext_lazy as _
 from django_auxilium.models import BaseModel
 from files.models import Attachment
 from utils.models import BleachRichTextField
-from utils.url import remove_querystring
 
 
 class Announcement(BaseModel):
@@ -33,8 +32,8 @@ class Announcement(BaseModel):
     )
 
     title = models.CharField(_("Title"), max_length=128)
-    description = BleachRichTextField(_("Description"), allowed_tags=["a"], blank=True)
-    announcement_html = BleachRichTextField(_("Announcement"))
+    description = BleachRichTextField(_("Description"), allowed_tags=["a"])
+    announcement_html = BleachRichTextField(_("Announcement"), blank=True)
 
     is_featured = models.BooleanField(_("Is Featured"), default=False)
     alert_level = models.CharField(
@@ -42,15 +41,6 @@ class Announcement(BaseModel):
     )
     start_date = models.DateField(_("Start Date"), null=True)
     end_date = models.DateField(_("End Date"), null=True)
-
-    image_url = models.URLField(
-        _("Image URL"),
-        max_length=512,
-        help_text=_("You can find many free images at unsplash.com"),
-    )
-    image_description = models.CharField(
-        _("Image Description"), max_length=512, blank=True
-    )
 
     attachments = models.ManyToManyField(
         Attachment,
@@ -65,7 +55,6 @@ class Announcement(BaseModel):
 
     def clean(self) -> None:
         self.clean_slug()
-        self.clean_image_url()
         super().clean()
 
     def clean_slug(self) -> None:
@@ -76,10 +65,6 @@ class Announcement(BaseModel):
                 raise ValidationError(
                     {"slug": self._meta.get_field("slug").error_messages["blank"]}
                 )
-
-    def clean_image_url(self) -> None:
-        if self.image_url:
-            self.image_url = remove_querystring(self.image_url, hostname="unsplash.com")
 
     def __str__(self) -> str:
         return f"{self.start_date}-{self.end_date} - {self.title}"
