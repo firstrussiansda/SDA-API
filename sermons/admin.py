@@ -43,3 +43,8 @@ class SermonOptions(TranslationAdmin):
         "youtube_assets",
         "attachments",
     ]
+    list_filter = [
+        "series",
+        "speakers",
+        "date",
+    ]
