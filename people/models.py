@@ -36,6 +36,7 @@ class Person(DirtyFieldsMixin, BaseModel):
     class Meta:
         verbose_name = _("Person")
         verbose_name_plural = _("People")
+        ordering = ["name"]
 
     @property
     def profile_image_url(self):

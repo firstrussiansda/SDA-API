@@ -20,6 +20,7 @@ class SermonSeries(BaseModel):
     class Meta:
         verbose_name = _("Sermon Series")
         verbose_name_plural = _("Sermon Series")
+        ordering = ["title"]
 
     def __str__(self):
         return f"{self.title}"
