@@ -86,6 +86,7 @@ class Sermon(BaseModel):
     class Meta:
         verbose_name = _("Sermon")
         verbose_name_plural = _("Sermons")
+        ordering = ["-date"]
 
     def __str__(self):
         return f"{self.date} - {self.title}"
