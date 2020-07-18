@@ -13,7 +13,7 @@ class JustSermonSeriesFilterSet(ModelFilterSet):
 
     class Meta:
         model = SermonSeries
-        fields = ["id", "title"]
+        fields = ["id", "slug", "title"]
         extra_kwargs = {
             "id": {"lookups": ["exact", "in", "isnull"]},
             "slug": {
@@ -56,7 +56,7 @@ class JustSermonFilterSet(ModelFilterSet):
 
     class Meta:
         model = Sermon
-        fields = ["id", "title", "date"]
+        fields = ["id", "slug", "title", "date"]
         extra_kwargs = {
             "id": {"lookups": ["exact", "in", "isnull"]},
             "slug": {

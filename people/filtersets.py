@@ -10,7 +10,7 @@ class PersonFilterSet(ModelFilterSet):
 
     class Meta:
         model = Person
-        fields = ["id", "name", "position"]
+        fields = ["id", "slug", "name", "position"]
         extra_kwargs = {
             "id": {"lookups": ["exact", "in", "isnull"]},
             "slug": {
