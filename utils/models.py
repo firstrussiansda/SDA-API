@@ -27,7 +27,7 @@ class SlugFromNameMixin(models.Model):
 
     slug = models.SlugField(
         _("Slug"),
-        max_length=64,
+        max_length=128,
         blank=True,
         unique=True,
         db_index=True,
