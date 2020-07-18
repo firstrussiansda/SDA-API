@@ -7,4 +7,4 @@ from .models import Person
 
 @admin.register(Person)
 class Person(TranslationAdmin):
-    fields = ["name", "gravatar_email", "profile_image", "position", "about"]
+    fields = ["slug", "name", "gravatar_email", "profile_image", "position", "about"]

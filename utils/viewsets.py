@@ -3,6 +3,7 @@ import typing
 from itertools import chain
 
 from django.db import models
+from django.http import Http404
 from rest_framework.exceptions import ValidationError
 
 
@@ -29,3 +30,12 @@ class OrderableMixin:
         if order_fields:
             qs = qs.order_by(*order_fields)
         return qs
+
+
+class SlugOrIdMixin:
+    def get_object(self) -> models.Model:
+        try:
+            return super().get_object()
+        except Http404:
+            self.lookup_field = "id"
+            return super().get_object()

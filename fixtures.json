@@ -177,7 +177,7 @@
       "about_uk": "\u041e\u043f\u0438\u0441\u0430\u043d\u043d\u044f",
       "created": "2020-02-02T16:53:21.623Z",
       "gravatar_email": "person@example.com",
-      "modified": "2020-02-09T22:28:30.445Z",
+      "modified": "2020-07-18T15:46:57.168Z",
       "name": "Andrew Dyman",
       "name_en": "Andrew Dyman",
       "name_ru": "Andrew Dyman",
@@ -186,7 +186,8 @@
       "position_en": "Pastor",
       "position_ru": "\u041f\u0430\u0441\u0442\u043e\u0440",
       "position_uk": "\u041f\u0430\u0441\u0442\u043e\u0440",
-      "profile_image": "people/profiles_images/7c241cabd3e641569a3c50965db231a2.jpg"
+      "profile_image": "people/profiles_images/7c241cabd3e641569a3c50965db231a2.jpg",
+      "slug": "andrew-dyman"
     },
     "model": "people.person",
     "pk": "015f87c8-8fdf-4258-a17f-ec7f0fe675cd"
@@ -198,7 +199,8 @@
       "description_en": "Description",
       "description_ru": "\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435",
       "description_uk": "\u041e\u043f\u0438\u0441\u0430\u043d\u043d\u044f",
-      "modified": "2020-02-02T16:51:13.056Z",
+      "modified": "2020-07-18T15:47:25.704Z",
+      "slug": "series",
       "title": "Series",
       "title_en": "Series",
       "title_ru": "\u0421\u0435\u0440\u0438\u044f",
@@ -218,8 +220,9 @@
       "description_en": "Description",
       "description_ru": "\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435",
       "description_uk": "\u041e\u043f\u0438\u0441\u0430\u043d\u043d\u044f",
-      "modified": "2020-02-02T16:56:57.121Z",
+      "modified": "2020-07-18T15:47:25.713Z",
       "series": "a4ff6e52-30e2-45be-9c1d-e70354c84c92",
+      "slug": "sermon",
       "soundcloud_assets": [
         "33a1b5ec-b0ec-4254-9334-e30120289827"
       ],
@@ -1346,7 +1349,7 @@
       "is_active": true,
       "is_staff": true,
       "is_superuser": true,
-      "last_login": "2020-03-20T19:22:35.039Z",
+      "last_login": "2020-07-18T15:36:39.580Z",
       "last_name": "",
       "password": "pbkdf2_sha256$150000$qTQ6tjLEVHSZ$VW/3pthDMvCrPPjL8d4iR0Js0unBl6M/sRqcFF98ERg=",
       "user_permissions": [],

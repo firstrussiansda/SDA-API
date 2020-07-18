@@ -1,16 +1,14 @@
 # -*- coding: utf-8 -*-
 import uuid
 
-from django.core.exceptions import ValidationError
 from django.db import models
-from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 from django_auxilium.models import BaseModel
 from files.models import Attachment
-from utils.models import BleachRichTextField
+from utils.models import BleachRichTextField, SlugFromNameMixin
 
 
-class Announcement(BaseModel):
+class Announcement(SlugFromNameMixin, BaseModel):
     ALERT_LEVELS = [
         ("INFO", "Info"),
         ("WARNING", "Warning"),
@@ -52,19 +50,6 @@ class Announcement(BaseModel):
     class Meta:
         verbose_name = _("Announcement")
         verbose_name_plural = _("Announcements")
-
-    def clean(self) -> None:
-        self.clean_slug()
-        super().clean()
-
-    def clean_slug(self) -> None:
-        if not self.slug:
-            if self.title_en:
-                self.slug = slugify(self.title_en)
-            else:
-                raise ValidationError(
-                    {"slug": self._meta.get_field("slug").error_messages["blank"]}
-                )
 
     def __str__(self) -> str:
         return f"{self.start_date}-{self.end_date} - {self.title}"

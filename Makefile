@@ -42,8 +42,8 @@ $(DJANGO_MEDIA_ROOT):
 	mkdir $(DJANGO_MEDIA_ROOT)
 
 makemessages: $(DJANGO_STATIC_ROOT)  ## update translation files
-	./manage.py makemessages -l ru --no-location
-	./manage.py makemessages -l uk --no-location
+	./manage.py makemessages -l ru --no-location --ignore=gunicorn.py --ignore=manage.py
+	./manage.py makemessages -l uk --no-location --ignore=gunicorn.py --ignore=manage.py
 
 compilemessages: $(DJANGO_STATIC_ROOT)  ## compile translation files
 	./manage.py compilemessages

@@ -20,6 +20,7 @@ class Settings(LoggingMixin, SecurityMixin, DjangoMixin, CKEditorMixin, Configur
         "people",
         "sermons",
         "thoughts",
+        "utils",
         # project
         "firstrussian",
     ]

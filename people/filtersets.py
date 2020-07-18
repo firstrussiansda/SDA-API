@@ -13,6 +13,20 @@ class PersonFilterSet(ModelFilterSet):
         fields = ["id", "name", "position"]
         extra_kwargs = {
             "id": {"lookups": ["exact", "in", "isnull"]},
+            "slug": {
+                "lookups": [
+                    "contains",
+                    "endswith",
+                    "exact",
+                    "icontains",
+                    "iendswith",
+                    "iexact",
+                    "in",
+                    "iregex",
+                    "istartswith",
+                    "regex",
+                ]
+            },
             "name": {
                 "lookups": [
                     "contains",

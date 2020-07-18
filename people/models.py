@@ -10,10 +10,11 @@ from django_auxilium.models import (
     RandomImageField,
     file_field_auto_change_delete,
 )
+from utils.models import SlugFromNameMixin
 
 
 @file_field_auto_change_delete
-class Person(DirtyFieldsMixin, BaseModel):
+class Person(DirtyFieldsMixin, SlugFromNameMixin, BaseModel):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
     name = models.CharField(_("Name"), max_length=128)
@@ -39,7 +40,7 @@ class Person(DirtyFieldsMixin, BaseModel):
         ordering = ["name"]
 
     @property
-    def profile_image_url(self):
+    def profile_image_url(self) -> str:
         if self.profile_image:
             return self.profile_image.url
         if self.gravatar_email:
