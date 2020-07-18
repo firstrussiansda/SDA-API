@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from functools import partial
+
 from files.serializers import AttachmentSerializer
 from media.serializers import SoundCloudAssetSerializer, YouTubeAssetSerializer
 from people.serializers import PersonSerializer
@@ -8,12 +10,24 @@ from .models import Sermon, SermonSeries
 
 
 class JustSermonSeriesSerializer(serializers.HyperlinkedModelSerializer):
+    serializer_url_field = partial(
+        serializers.HyperlinkedIdentityField,
+        lookup_field="slug",
+        lookup_url_kwarg="slug",
+    )
+
     class Meta:
         model = SermonSeries
-        fields = ["id", "url", "title", "description"]
+        fields = ["id", "url", "slug", "title", "description"]
 
 
 class JustSermonSerializer(serializers.HyperlinkedModelSerializer):
+    serializer_url_field = partial(
+        serializers.HyperlinkedIdentityField,
+        lookup_field="slug",
+        lookup_url_kwarg="slug",
+    )
+
     speakers = PersonSerializer(many=True)
     soundcloud_assets = SoundCloudAssetSerializer(many=True)
     youtube_assets = YouTubeAssetSerializer(many=True)
@@ -24,6 +38,7 @@ class JustSermonSerializer(serializers.HyperlinkedModelSerializer):
         fields = [
             "id",
             "url",
+            "slug",
             "title",
             "description",
             "date",

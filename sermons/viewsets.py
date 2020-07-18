@@ -6,6 +6,7 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from url_filter.integrations.drf_coreapi import CoreAPIURLFilterBackend
 from utils.drf_yasg import NoPaginationInspector
+from utils.viewsets import SlugOrIdMixin
 
 from .filtersets import SermonFilterSet, SermonSeriesFilterSet
 from .models import Sermon, SermonSeries
@@ -17,8 +18,10 @@ from .serializers import (
 )
 
 
-class SermonSeriesViewSet(viewsets.ReadOnlyModelViewSet):
+class SermonSeriesViewSet(SlugOrIdMixin, viewsets.ReadOnlyModelViewSet):
     model = SermonSeries
+    lookup_field = "slug"
+    lookup_url_kwarg = "slug"
     queryset = SermonSeries.objects.all()
     serializer_class = SermonSeriesSerializer
     filter_backends = [CoreAPIURLFilterBackend]
@@ -47,8 +50,10 @@ class SermonSeriesViewSet(viewsets.ReadOnlyModelViewSet):
         return qs
 
 
-class SermonViewSet(viewsets.ReadOnlyModelViewSet):
+class SermonViewSet(SlugOrIdMixin, viewsets.ReadOnlyModelViewSet):
     model = Sermon
+    lookup_field = "slug"
+    lookup_url_kwarg = "slug"
     queryset = (
         Sermon.objects.prefetch_related(
             "speakers", "soundcloud_assets", "youtube_assets", "attachments",

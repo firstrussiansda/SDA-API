@@ -16,6 +16,20 @@ class JustSermonSeriesFilterSet(ModelFilterSet):
         fields = ["id", "title"]
         extra_kwargs = {
             "id": {"lookups": ["exact", "in", "isnull"]},
+            "slug": {
+                "lookups": [
+                    "contains",
+                    "endswith",
+                    "exact",
+                    "icontains",
+                    "iendswith",
+                    "iexact",
+                    "in",
+                    "iregex",
+                    "istartswith",
+                    "regex",
+                ]
+            },
             "title": {
                 "lookups": [
                     "contains",
@@ -45,6 +59,20 @@ class JustSermonFilterSet(ModelFilterSet):
         fields = ["id", "title", "date"]
         extra_kwargs = {
             "id": {"lookups": ["exact", "in", "isnull"]},
+            "slug": {
+                "lookups": [
+                    "contains",
+                    "endswith",
+                    "exact",
+                    "icontains",
+                    "iendswith",
+                    "iexact",
+                    "in",
+                    "iregex",
+                    "istartswith",
+                    "regex",
+                ]
+            },
             "title": {
                 "lookups": [
                     "contains",

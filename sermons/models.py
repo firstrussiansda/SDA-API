@@ -9,9 +9,10 @@ from django_auxilium.models import BaseModel
 from files.models import Attachment
 from media.models import SoundCloudAsset, YouTubeAsset
 from people.models import Person
+from utils.models import SlugFromNameMixin
 
 
-class SermonSeries(BaseModel):
+class SermonSeries(SlugFromNameMixin, BaseModel):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
     title = models.CharField(_("Title"), max_length=128)
@@ -41,7 +42,7 @@ class SermonQuerySet(models.QuerySet):
         return dict(sorted(data.items()))
 
 
-class Sermon(BaseModel):
+class Sermon(SlugFromNameMixin, BaseModel):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
     title = models.CharField(_("Title"), max_length=128)

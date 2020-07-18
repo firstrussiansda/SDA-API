@@ -19,6 +19,7 @@ class SermonInline(admin.StackedInline):
 @admin.register(SermonSeries)
 class SermonSeriesOptions(TranslationAdmin):
     fields = [
+        "slug",
         "title",
         "description",
     ]
@@ -29,6 +30,7 @@ class SermonSeriesOptions(TranslationAdmin):
 class SermonOptions(TranslationAdmin):
     fields = [
         "date",
+        "slug",
         "title",
         "description",
         "series",
