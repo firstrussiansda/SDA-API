@@ -19,6 +19,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ("sermons", "0004_adding_slug"),
+        ("sermons", "0004_longer_slug"),
     ]
 
     operations = [
