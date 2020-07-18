@@ -19,7 +19,6 @@ class Migration(migrations.Migration):
                     " delimiter."
                 ),
                 max_length=128,
-                unique=True,
                 verbose_name="Slug",
             ),
         ),
@@ -33,7 +32,6 @@ class Migration(migrations.Migration):
                     " delimiter."
                 ),
                 max_length=128,
-                unique=True,
                 verbose_name="Slug",
             ),
         ),
