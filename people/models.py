@@ -10,11 +10,11 @@ from django_auxilium.models import (
     RandomImageField,
     file_field_auto_change_delete,
 )
-from utils.models import SlugFromNameMixin
+from utils.models import FilteredTranslatableMixin, SlugFromNameMixin
 
 
 @file_field_auto_change_delete
-class Person(DirtyFieldsMixin, SlugFromNameMixin, BaseModel):
+class Person(DirtyFieldsMixin, FilteredTranslatableMixin, SlugFromNameMixin, BaseModel):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
     name = models.CharField(_("Name"), max_length=128)
