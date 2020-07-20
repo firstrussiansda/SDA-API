@@ -5,6 +5,9 @@ from django.db import models
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 from django_bleach.models import BleachField
+from modeltranslation.manager import MultilingualManager
+
+from .translation import MultilingualFilterQuerySet
 
 
 class BleachRichTextField(BleachField, RichTextField):
@@ -55,3 +58,11 @@ class SlugFromNameMixin(models.Model):
                 raise ValidationError(
                     {"slug": self._meta.get_field("slug").error_messages["blank"]}
                 )
+
+
+class FilteredTranslatableMixin(models.Model):
+    objects = MultilingualManager.from_queryset(MultilingualFilterQuerySet)()
+    filterable = MultilingualManager.from_queryset(MultilingualFilterQuerySet)()
+
+    class Meta:
+        abstract = True

@@ -9,10 +9,11 @@ from django_auxilium.models import BaseModel
 from files.models import Attachment
 from media.models import SoundCloudAsset, YouTubeAsset
 from people.models import Person
-from utils.models import SlugFromNameMixin
+from utils.models import FilteredTranslatableMixin, SlugFromNameMixin
+from utils.translation import MultilingualFilterQuerySet
 
 
-class SermonSeries(SlugFromNameMixin, BaseModel):
+class SermonSeries(FilteredTranslatableMixin, SlugFromNameMixin, BaseModel):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
     title = models.CharField(_("Title"), max_length=128)
@@ -27,7 +28,7 @@ class SermonSeries(SlugFromNameMixin, BaseModel):
         return f"{self.title}"
 
 
-class SermonQuerySet(models.QuerySet):
+class SermonQuerySet(MultilingualFilterQuerySet):
     def with_year_months(self):
         return self.values("date__year", "date__month").annotate(
             models.Count("date__month")
@@ -42,7 +43,7 @@ class SermonQuerySet(models.QuerySet):
         return dict(sorted(data.items()))
 
 
-class Sermon(SlugFromNameMixin, BaseModel):
+class Sermon(FilteredTranslatableMixin, SlugFromNameMixin, BaseModel):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
     title = models.CharField(_("Title"), max_length=128)

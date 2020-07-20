@@ -6,11 +6,15 @@ from django.utils.translation import gettext_lazy as _
 from django_auxilium.models import BaseModel
 from files.models import Attachment
 from people.models import Person
-from utils.models import BleachRichTextField, SlugFromNameMixin
+from utils.models import (
+    BleachRichTextField,
+    FilteredTranslatableMixin,
+    SlugFromNameMixin,
+)
 from utils.url import remove_querystring
 
 
-class Thought(SlugFromNameMixin, BaseModel):
+class Thought(FilteredTranslatableMixin, SlugFromNameMixin, BaseModel):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
     title = models.CharField(_("Title"), max_length=128)
