@@ -33,6 +33,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_BACKUP_BUCKET: ${{ secrets.AWS_BACKUP_BUCKET }}
           PGDATA_VOLUME: /var/lib/docker-volumes/firstrussianny/pgdata
+          MEDIA_VOLUME: /var/lib/docker-volumes/firstrussianny/media
 
         run: |
           # docker-machine env vars must be defined in the script
