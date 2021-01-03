@@ -56,7 +56,10 @@ class SermonViewSet(SlugOrIdMixin, viewsets.ReadOnlyModelViewSet):
     lookup_url_kwarg = "slug"
     queryset = (
         Sermon.objects.prefetch_related(
-            "speakers", "soundcloud_assets", "youtube_assets", "attachments",
+            "speakers",
+            "soundcloud_assets",
+            "youtube_assets",
+            "attachments",
         )
         .order_by("-date")
         .all()

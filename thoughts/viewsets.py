@@ -13,7 +13,10 @@ class ThoughtViewSet(SlugOrIdMixin, viewsets.ReadOnlyModelViewSet):
     lookup_field = "slug"
     lookup_url_kwarg = "slug"
     queryset = (
-        Thought.objects.prefetch_related("authors", "attachments",)
+        Thought.objects.prefetch_related(
+            "authors",
+            "attachments",
+        )
         .order_by("-date")
         .all()
     )
