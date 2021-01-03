@@ -1,0 +1,74 @@
+name: deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    container:
+      image: docker/compose:1.24.1
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Deploy App Containers
+        env:
+          COMPOSE_PROJECT_NAME: sda-api
+          APP_PUBLIC_PORT: "172.17.0.1:8000"
+          API_SITE_URL: ${{ secrets.API_SITE_URL }}
+          DOCKER_CA_CERT: ${{ secrets.DOCKER_CA_CERT }}
+          DOCKER_CLIENT_CERT: ${{ secrets.DOCKER_CLIENT_CERT }}
+          DOCKER_CLIENT_KEY: ${{ secrets.DOCKER_CLIENT_KEY }}
+          DJANGO_SITE_URL: ${{ secrets.DJANGO_SITE_URL }}
+          DJANGO_DATABASE_URL: ${{ secrets.DJANGO_DATABASE_URL }}
+          DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
+          DJANGO_AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          DJANGO_AWS_S3_REGION_NAME: ${{ secrets.AWS_DEFAULT_REGION }}
+          DJANGO_AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          DJANGO_AWS_STORAGE_BUCKET_NAME: ${{ secrets.AWS_MEDIA_BUCKET }}
+          CERTBOT_EMAIL: ${{ secrets.CERTBOT_EMAIL }}
+          PGDATA_VOLUME: /var/lib/docker-volumes/firstrussianny/pgdata
+          MEDIA_VOLUME: /var/lib/docker-volumes/firstrussianny/media
+
+        run: |
+          # docker-machine env vars must be defined in the script
+          # otherwise github fails to execute this script in the container
+          # since it applies global env vars to the host machine running docker
+          export DOCKER_CERT_PATH=/tmp/docker-certs
+          export DOCKER_TLS_VERIFY=1
+          export DOCKER_HOST=${{ secrets.DOCKER_HOST }}
+          export DOCKER_MACHINE_NAME=${{ secrets.DOCKER_MACHINE_NAME }}
+          mkdir -p $DOCKER_CERT_PATH
+          printenv DOCKER_CA_CERT > $DOCKER_CERT_PATH/ca.pem
+          printenv DOCKER_CLIENT_CERT > $DOCKER_CERT_PATH/cert.pem
+          printenv DOCKER_CLIENT_KEY > $DOCKER_CERT_PATH/key.pem
+
+          # create new cert if one does not exist already
+          docker-compose run --rm \
+              certbot certificates \
+            2>&1 \
+            | grep "No certs found" \
+            && docker-compose run --rm \
+              -p 80:80 \
+              certbot certonly \
+                --non-interactive \
+                --agree-tos \
+                -m $CERTBOT_EMAIL \
+                --standalone \
+                --must-staple \
+                -d firstrussiansda.org \
+                -d www.firstrussiansda.org \
+                -d api.firstrussiansda.org \
+            || true
+
+          docker-compose build --pull
+          docker-compose up certbot
+          docker-compose up -d
+
+          # load renewed certs
+          docker-compose kill -s HUP nginx || true
+          timeout -t 10 docker-compose logs -f app nginx || true
