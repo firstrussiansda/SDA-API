@@ -1,0 +1,13 @@
+name: test
+
+on:
+  - pull_request
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    container: miki725/pre-commit
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run Pre-Commit
+        run: pre-commit run --all-files
