@@ -3,7 +3,7 @@ name: deploy
 on:
   push:
     branches:
-      - actions-deploy
+      - master
 
 jobs:
   deploy:
@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Deploy React Container
+      - name: Deploy App Containers
         env:
           COMPOSE_PROJECT_NAME: sda-api
           APP_PUBLIC_PORT: "172.17.0.1:8000"
