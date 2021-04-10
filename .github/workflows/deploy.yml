@@ -69,6 +69,9 @@ jobs:
           docker-compose up certbot
           docker-compose up -d
 
+          # clear some disk space
+          docker system prune --all --force
+
           # load renewed certs
           docker-compose kill -s HUP nginx || true
           timeout -t 10 docker-compose logs -f app nginx || true
