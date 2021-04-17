@@ -21,3 +21,10 @@ class ThoughtOptions(TranslationAdmin):
     filter_horizontal = [
         "attachments",
     ]
+    list_display = [
+        "start_date",
+        "end_date",
+        "is_featured",
+        "alert_level",
+        "title",
+    ]

@@ -30,6 +30,7 @@ class SermonSeriesOptions(TranslationAdmin):
 class SermonOptions(TranslationAdmin):
     fields = [
         "date",
+        "is_published",
         "slug",
         "title",
         "description",
@@ -50,3 +51,12 @@ class SermonOptions(TranslationAdmin):
         "speakers",
         "date",
     ]
+    list_display = [
+        "date",
+        "is_published",
+        "title",
+        "series",
+    ]
+
+    def get_queryset(self, request):
+        return Sermon.all_sermons.all()

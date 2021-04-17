@@ -23,3 +23,8 @@ class EventOptions(TranslationAdmin):
     filter_horizontal = [
         "attachments",
     ]
+    list_display = [
+        "date",
+        "is_featured",
+        "title",
+    ]
