@@ -220,6 +220,7 @@
       "description_en": "Description",
       "description_ru": "\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435",
       "description_uk": "\u041e\u043f\u0438\u0441\u0430\u043d\u043d\u044f",
+      "is_published": true,
       "modified": "2020-07-18T15:47:25.713Z",
       "series": "a4ff6e52-30e2-45be-9c1d-e70354c84c92",
       "slug": "sermon",
@@ -239,6 +240,30 @@
     },
     "model": "sermons.sermon",
     "pk": "a3106542-e4ee-4231-884e-a45c454e7885"
+  },
+  {
+    "fields": {
+      "attachments": [],
+      "created": "2021-04-17T14:48:00.577Z",
+      "date": "2021-04-17",
+      "description": "",
+      "description_en": "",
+      "description_ru": "",
+      "description_uk": "",
+      "is_published": false,
+      "modified": "2021-04-17T14:48:00.577Z",
+      "series": null,
+      "slug": "not-published",
+      "soundcloud_assets": [],
+      "speakers": [],
+      "title": "Not Published",
+      "title_en": "Not Published",
+      "title_ru": "\u041d\u0435 \u043e\u043f\u0443\u0431\u043b\u0438\u043a\u043e\u0432\u0430\u043d\u043d\u0430\u044f",
+      "title_uk": null,
+      "youtube_assets": []
+    },
+    "model": "sermons.sermon",
+    "pk": "e0e3666a-c1d4-40b2-85ed-f8c04f528898"
   },
   {
     "fields": {
@@ -1349,7 +1374,7 @@
       "is_active": true,
       "is_staff": true,
       "is_superuser": true,
-      "last_login": "2020-07-18T15:36:39.580Z",
+      "last_login": "2021-04-17T14:46:20.180Z",
       "last_name": "",
       "password": "pbkdf2_sha256$150000$qTQ6tjLEVHSZ$VW/3pthDMvCrPPjL8d4iR0Js0unBl6M/sRqcFF98ERg=",
       "user_permissions": [],

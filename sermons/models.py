@@ -43,8 +43,15 @@ class SermonQuerySet(MultilingualFilterQuerySet):
         return dict(sorted(data.items()))
 
 
+class SermonOnlyPublishedManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().filter(is_published=True)
+
+
 class Sermon(FilteredTranslatableMixin, SlugFromNameMixin, BaseModel):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+
+    is_published = models.BooleanField(_("Published"), default=True, db_index=True)
 
     title = models.CharField(_("Title"), max_length=128)
     description = models.TextField(_("Description"), blank=True)
@@ -84,7 +91,8 @@ class Sermon(FilteredTranslatableMixin, SlugFromNameMixin, BaseModel):
         blank=True,
     )
 
-    objects = models.Manager.from_queryset(SermonQuerySet)()
+    objects = SermonOnlyPublishedManager.from_queryset(SermonQuerySet)()
+    all_sermons = SermonQuerySet.as_manager()
 
     class Meta:
         verbose_name = _("Sermon")
