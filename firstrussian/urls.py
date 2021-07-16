@@ -4,6 +4,7 @@ import events.urls
 import files.urls
 import media.urls
 import people.urls
+import redirects.urls
 import rosetta.urls
 import sermons.urls
 import thoughts.urls
@@ -37,6 +38,8 @@ urlpatterns = [
     path("api/", include(media.urls.router.urls)),
     path("api/", include(files.urls.router.urls)),
     path("api/", include(thoughts.urls.router.urls)),
+    # redirects
+    path("", include(redirects.urls.urlpatterns)),
     # redirect swagger
     path("", RedirectView.as_view(pattern_name="schema-swagger-ui"), name="api-root"),
     # api docs
