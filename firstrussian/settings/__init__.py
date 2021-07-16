@@ -19,7 +19,9 @@ class Settings(LoggingMixin, SecurityMixin, DjangoMixin, CKEditorMixin, Configur
         "media",
         "people",
         "sermons",
+        "services",
         "thoughts",
+        "redirects",
         "utils",
         # project
         "firstrussian",

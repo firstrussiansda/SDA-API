@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
                 ),
                 max_length=32,
                 editable=False,
-                verbose_name="Object ID",
+                verbose_name="Track ID",
                 default="",
             ),
         ),
