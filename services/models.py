@@ -13,7 +13,11 @@ from django_auxilium.models import BaseModel
 from media.models import YouTubeAsset
 from people.models import Person
 from sermons.models import Sermon
+from structlog import get_logger
 from utils.models import BleachRichTextField
+
+
+log = get_logger()
 
 
 class Service(DirtyFieldsMixin, BaseModel):
@@ -67,6 +71,10 @@ def handle_service_change(sender, instance: Service, created, **kwargs):
         return
 
     for person in instance.subscribers.exclude(notifications_email=None):
+        log.info(
+            "Sending service notification email",
+            {"to_email": person.notifications_email},
+        )
         send_mail(
             subject=f"Service {instance} has changed",
             message="only html message is supported",
