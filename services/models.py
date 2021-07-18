@@ -1,7 +1,13 @@
 # -*- coding: utf-8 -*-
 import uuid
 
+from dirtyfields import DirtyFieldsMixin
+from django.conf import settings
+from django.core.mail import send_mail
 from django.db import models
+from django.dispatch import receiver
+from django.templatetags.l10n import localize
+from django.utils.timezone import localtime, now
 from django.utils.translation import gettext_lazy as _
 from django_auxilium.models import BaseModel
 from media.models import YouTubeAsset
@@ -10,7 +16,7 @@ from sermons.models import Sermon
 from utils.models import BleachRichTextField
 
 
-class Service(BaseModel):
+class Service(DirtyFieldsMixin, BaseModel):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
     datetime = models.DateTimeField(_("Time"), null=False)
@@ -42,10 +48,38 @@ class Service(BaseModel):
         ordering = ["-datetime"]
 
     def __str__(self) -> str:
-        return f"{self.datetime}"
+        return f"{self.datetime.strftime('%A')} {localize(localtime(self.datetime))}"
 
     def html_youtube_link(self):
         if self.youtube_stream_id:
             return self.youtube_stream.html_object_link
 
     html_youtube_link.short_description = "YouTube Stream"
+
+
+@receiver(models.signals.post_save, sender=Service)
+def handle_service_change(sender, instance: Service, created, **kwargs):
+    if now() > instance.datetime:
+        return
+    if not created and not any(
+        i in instance.get_dirty_fields() for i in ["program_html", "youtube_stream_id"]
+    ):
+        return
+
+    for person in instance.subscribers.exclude(notifications_email=None):
+        send_mail(
+            subject=f"Service {instance} has changed",
+            message="only html message is supported",
+            html_message=f"""
+<h1>{'Created' if created else 'Updated'} Service</h1>
+<hr>
+<h2>About Service</h2>
+<p>Time: <strong>{instance}</strong></p>
+<p>YouTube Stream: <strong>{instance.youtube_stream.html_object_link if instance.youtube_stream_id else 'none'}</strong></p>
+<hr>
+<h2>Service Program</h2>
+{instance.program_html}
+""",
+            from_email=settings.EMAIL_NOTIFICATIONS,
+            recipient_list=[person.notifications_email],
+        )
