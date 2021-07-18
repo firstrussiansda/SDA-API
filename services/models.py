@@ -5,13 +5,21 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django_auxilium.models import BaseModel
 from media.models import YouTubeAsset
+from people.models import Person
 from sermons.models import Sermon
+from utils.models import BleachRichTextField
 
 
 class Service(BaseModel):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
     datetime = models.DateTimeField(_("Time"), null=False)
+
+    program_html = BleachRichTextField(_("Program"), blank=True)
+
+    subscribers = models.ManyToManyField(
+        Person, related_name="services", verbose_name=_("Subscribers"), blank=True
+    )
 
     youtube_stream = models.ForeignKey(
         YouTubeAsset,

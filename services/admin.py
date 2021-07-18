@@ -8,6 +8,8 @@ from .models import Service
 class ServiceOptions(admin.ModelAdmin):
     fields = [
         "datetime",
+        "program_html",
+        "subscribers",
         "youtube_stream",
         "html_youtube_link",
         "sermons",
@@ -15,7 +17,7 @@ class ServiceOptions(admin.ModelAdmin):
     readonly_fields = [
         "html_youtube_link",
     ]
-    filter_horizontal = ["sermons"]
+    filter_horizontal = ["sermons", "subscribers"]
     list_display = [
         "datetime",
         "html_youtube_link",
