@@ -1,7 +1,19 @@
 # -*- coding: utf-8 -*-
 class CKEditorMixin:
     # Which HTML tags are allowed
-    BLEACH_ALLOWED_TAGS = ["p", "b", "i", "u", "em", "strong", "a", "h1", "h2", "h3"]
+    BLEACH_ALLOWED_TAGS = [
+        "p",
+        "br",
+        "b",
+        "i",
+        "u",
+        "em",
+        "strong",
+        "a",
+        "h1",
+        "h2",
+        "h3",
+    ]
 
     # Which HTML attributes are allowed
     BLEACH_ALLOWED_ATTRIBUTES = ["href", "title", "style"]
