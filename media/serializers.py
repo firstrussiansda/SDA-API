@@ -5,6 +5,8 @@ from .models import SoundCloudAsset, YouTubeAsset
 
 
 class SoundCloudAssetSerializer(serializers.HyperlinkedModelSerializer):
+    thumbnail_url = serializers.FileField(source="overriden_thumbnail_field")
+
     class Meta:
         model = SoundCloudAsset
         fields = [
@@ -20,6 +22,8 @@ class SoundCloudAssetSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class YouTubeAssetSerializer(serializers.HyperlinkedModelSerializer):
+    thumbnail_url = serializers.FileField(source="overriden_thumbnail_field")
+
     class Meta:
         model = YouTubeAsset
         fields = [

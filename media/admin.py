@@ -7,7 +7,14 @@ from .models import SoundCloudAsset, YouTubeAsset
 @admin.register(SoundCloudAsset)
 class SoundCloudOptions(admin.ModelAdmin):
     list_display = ["title", "html_object_link"]
-    fields = ["title", "object_id", "html_object_link", "thumbnail_url", "track_id"]
+    fields = [
+        "title",
+        "object_id",
+        "html_object_link",
+        "thumbnail_url",
+        "thumbnail_override",
+        "track_id",
+    ]
     readonly_fields = ["title", "html_object_link", "thumbnail_url", "track_id"]
 
 
@@ -20,5 +27,6 @@ class YouTubeOptions(admin.ModelAdmin):
         "start_at_seconds",
         "html_object_link",
         "thumbnail_url",
+        "thumbnail_override",
     ]
     readonly_fields = ["title", "html_object_link", "thumbnail_url"]
