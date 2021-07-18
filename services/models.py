@@ -73,7 +73,7 @@ def handle_service_change(sender, instance: Service, created, **kwargs):
     for person in instance.subscribers.exclude(notifications_email=None):
         log.info(
             "Sending service notification email",
-            {"to_email": person.notifications_email},
+            to_email=person.notifications_email,
         )
         send_mail(
             subject=f"Service {instance} has changed",
