@@ -159,3 +159,9 @@ class YouTubeAsset(BaseAsset):
         self.object_id = metadata.object_id
         self.title = metadata.title
         self.thumbnail_url = metadata.thumbnail_url
+
+    def __str__(self):
+        title = self.title
+        if self.start_at_seconds:
+            return f"{title} @ {self.start_at_seconds}"
+        return title

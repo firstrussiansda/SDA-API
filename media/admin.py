@@ -13,7 +13,7 @@ class SoundCloudOptions(admin.ModelAdmin):
 
 @admin.register(YouTubeAsset)
 class YouTubeOptions(admin.ModelAdmin):
-    list_display = ["title", "html_object_link"]
+    list_display = ["title", "start_at_seconds", "html_object_link"]
     fields = [
         "title",
         "object_id",
