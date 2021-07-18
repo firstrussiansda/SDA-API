@@ -123,11 +123,24 @@ class YouTubeAsset(BaseAsset):
             " extracted."
         ),
     )
+    start_at_seconds = models.IntegerField(
+        _("Start At"),
+        help_text=_("Start at time offset in seconds"),
+        null=True,
+        blank=True,
+    )
     thumbnail_url = models.URLField(_("Thumbnail URL"), max_length=256, editable=False)
 
     class Meta:
         verbose_name = _("YouTube Asset")
         verbose_name_plural = _("YouTube Assets")
+
+    @property
+    def object_url(self):
+        url = super().object_url
+        if self.start_at_seconds:
+            return f"{url}&t={self.start_at_seconds}"
+        return url
 
     def clean_dirty_object_id(self):
         parsed = urlparse(self.object_id)
