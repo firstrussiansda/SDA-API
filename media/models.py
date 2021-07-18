@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import re
 import uuid
+from dataclasses import dataclass
 from urllib.parse import urlparse
 
 from dirtyfields import DirtyFieldsMixin
@@ -10,9 +11,15 @@ from django.http import QueryDict
 from django.utils.http import urlquote
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
-from django_auxilium.models import BaseModel
+from django_auxilium.models import BaseModel, RandomFileField
 
 from .utils import oembed_from_id
+
+
+@dataclass
+class FakeFile:
+    url: str
+    name: str
 
 
 class BaseAsset(DirtyFieldsMixin, BaseModel):
@@ -20,6 +27,14 @@ class BaseAsset(DirtyFieldsMixin, BaseModel):
 
     class Meta:
         abstract = True
+
+    @property
+    def overriden_thumbnail_field(self):
+        return (
+            self.thumbnail_override
+            if self.thumbnail_override
+            else FakeFile(url=self.thumbnail_url, name=self.thumbnail_url)
+        )
 
     @property
     def object_url(self):
@@ -72,6 +87,12 @@ class SoundCloudAsset(BaseAsset):
         help_text="SoundCloud track ID. Extracted from a linked SoundCloud resource.",
     )
     thumbnail_url = models.URLField(_("Thumbnail URL"), max_length=256, editable=False)
+    thumbnail_override = RandomFileField(
+        _("Thumbnail Override"),
+        blank=True,
+        upload_to="media/soundcloud-thumbnails",
+        help_text=_("Override thumbnail from soundcloud"),
+    )
 
     class Meta:
         verbose_name = _("SoundCloud Asset")
@@ -130,6 +151,12 @@ class YouTubeAsset(BaseAsset):
         blank=True,
     )
     thumbnail_url = models.URLField(_("Thumbnail URL"), max_length=256, editable=False)
+    thumbnail_override = RandomFileField(
+        _("Thumbnail Override"),
+        blank=True,
+        upload_to="media/youtube-thumbnails",
+        help_text=_("Override thumbnail from YouTube"),
+    )
 
     class Meta:
         verbose_name = _("YouTube Asset")
