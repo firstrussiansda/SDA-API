@@ -30,6 +30,9 @@ jobs:
           DJANGO_AWS_S3_REGION_NAME: ${{ secrets.AWS_DEFAULT_REGION }}
           DJANGO_AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           DJANGO_AWS_STORAGE_BUCKET_NAME: ${{ secrets.AWS_MEDIA_BUCKET }}
+          DJANGO_EMAIL_NOTIFICATIONS: ${{ secrets.DJANGO_EMAIL_NOTIFICATIONS }}
+          DJANGO_MAILGUN_KEY: ${{ secrets.DJANGO_MAILGUN_KEY }}
+          DJANGO_MAILGUN_SERVER_NAME: ${{ secrets.DJANGO_MAILGUN_SERVER_NAME }}
           CERTBOT_EMAIL: ${{ secrets.CERTBOT_EMAIL }}
           PGDATA_VOLUME: /var/lib/docker-volumes/firstrussianny/pgdata
           MEDIA_VOLUME: /var/lib/docker-volumes/firstrussianny/media

@@ -7,10 +7,18 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 from configurations import Configuration, values
 from django.utils.translation import gettext_lazy as _
 
-from .mixins import CKEditorMixin, DjangoMixin, LoggingMixin, SecurityMixin
+from .mixins import (
+    CKEditorMixin,
+    DjangoMixin,
+    EmailMixin,
+    LoggingMixin,
+    SecurityMixin,
+)
 
 
-class Settings(LoggingMixin, SecurityMixin, DjangoMixin, CKEditorMixin, Configuration):
+class Settings(
+    LoggingMixin, SecurityMixin, DjangoMixin, EmailMixin, CKEditorMixin, Configuration
+):
     INSTALLED_APPS_PROJECT = [
         # apps
         "announcements",

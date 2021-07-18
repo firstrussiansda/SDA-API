@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
             field=django_auxilium.models.fields.files.RandomFileField(
                 blank=True,
                 help_text="Override thumbnail from soundcloud",
-                upload_to="files/soundcloud-thumbnails",
+                upload_to="media/soundcloud-thumbnails",
                 verbose_name="Thumbnail Override",
             ),
         ),
@@ -26,7 +26,7 @@ class Migration(migrations.Migration):
             field=django_auxilium.models.fields.files.RandomFileField(
                 blank=True,
                 help_text="Override thumbnail from YouTube",
-                upload_to="files/youtube-thumbnails",
+                upload_to="media/youtube-thumbnails",
                 verbose_name="Thumbnail Override",
             ),
         ),
