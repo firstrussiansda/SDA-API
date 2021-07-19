@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import uuid
 
-import ckeditor.fields
 from django.db import migrations, models
 
 
@@ -58,18 +57,21 @@ class Migration(migrations.Migration):
                     "description_en",
                     models.TextField(blank=True, null=True, verbose_name="Description"),
                 ),
-                ("thought_html", ckeditor.fields.RichTextField(verbose_name="Thought")),
+                (
+                    "thought_html",
+                    models.TextField(blank=True, null=True, verbose_name="Thought"),
+                ),
                 (
                     "thought_html_ru",
-                    ckeditor.fields.RichTextField(null=True, verbose_name="Thought"),
+                    models.TextField(blank=True, null=True, verbose_name="Thought"),
                 ),
                 (
                     "thought_html_uk",
-                    ckeditor.fields.RichTextField(null=True, verbose_name="Thought"),
+                    models.TextField(blank=True, null=True, verbose_name="Thought"),
                 ),
                 (
                     "thought_html_en",
-                    ckeditor.fields.RichTextField(null=True, verbose_name="Thought"),
+                    models.TextField(blank=True, null=True, verbose_name="Thought"),
                 ),
                 ("date", models.DateField(null=True, verbose_name="Date")),
                 (

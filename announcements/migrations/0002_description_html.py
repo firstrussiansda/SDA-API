@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-import ckeditor.fields
-from django.db import migrations
+from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
@@ -13,21 +12,21 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="announcement",
             name="description",
-            field=ckeditor.fields.RichTextField(verbose_name="Announcement"),
+            field=models.TextField(verbose_name="Announcement"),
         ),
         migrations.AlterField(
             model_name="announcement",
             name="description_en",
-            field=ckeditor.fields.RichTextField(null=True, verbose_name="Announcement"),
+            field=models.TextField(verbose_name="Announcement"),
         ),
         migrations.AlterField(
             model_name="announcement",
             name="description_ru",
-            field=ckeditor.fields.RichTextField(null=True, verbose_name="Announcement"),
+            field=models.TextField(verbose_name="Announcement"),
         ),
         migrations.AlterField(
             model_name="announcement",
             name="description_uk",
-            field=ckeditor.fields.RichTextField(null=True, verbose_name="Announcement"),
+            field=models.TextField(verbose_name="Announcement"),
         ),
     ]
