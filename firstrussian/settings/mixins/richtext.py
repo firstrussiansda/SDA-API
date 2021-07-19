@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-class CKEditorMixin:
+class RichTextMixin:
     # Which HTML tags are allowed
     BLEACH_ALLOWED_TAGS = [
         "p",
@@ -34,11 +34,20 @@ class CKEditorMixin:
     # Strip comments, or leave them in.
     BLEACH_STRIP_COMMENTS = True
 
-    BLEACH_DEFAULT_WIDGET = "ckeditor.widgets.CKEditorWidget"
-
-    CKEDITOR_CONFIGS = {
-        "default": {
-            "removePlugins": "stylesheetparser",
-            "allowedContent": " ".join(BLEACH_ALLOWED_TAGS + ["a[!href]"]),
-        }
+    TINYMCE_DEFAULT_CONFIG = {
+        "selector": "textarea",
+        "theme": "modern",
+        "plugins": "link image code",
+        "toolbar1": """
+            undo redo |
+            formatselect |
+            bold italic underline |
+            link |
+            code
+        """,
+        "menubar": False,
+        "inline": False,
+        "statusbar": True,
+        "width": "auto",
+        "height": 360,
     }

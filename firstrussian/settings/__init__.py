@@ -8,16 +8,16 @@ from configurations import Configuration, values
 from django.utils.translation import gettext_lazy as _
 
 from .mixins import (
-    CKEditorMixin,
     DjangoMixin,
     EmailMixin,
     LoggingMixin,
+    RichTextMixin,
     SecurityMixin,
 )
 
 
 class Settings(
-    LoggingMixin, SecurityMixin, DjangoMixin, EmailMixin, CKEditorMixin, Configuration
+    LoggingMixin, SecurityMixin, DjangoMixin, EmailMixin, RichTextMixin, Configuration
 ):
     INSTALLED_APPS_PROJECT = [
         # apps
@@ -36,13 +36,13 @@ class Settings(
     ]
     INSTALLED_APPS_OTHER = [
         # 3rd party apps
-        "ckeditor",
         "corsheaders",
         "django_bleach",
         "drf_yasg",
         "modeltranslation",
         "rest_framework",
         "rosetta",
+        "tinymce",
     ]
 
     MIDDLEWARE_RESPONSE_AFTER_MINIFY = [
