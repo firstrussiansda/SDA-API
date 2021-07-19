@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
-from ckeditor.fields import RichTextField
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 from django_bleach.models import BleachField
 from modeltranslation.manager import MultilingualManager
+from tinymce import HTMLField
 
 from .translation import MultilingualFilterQuerySet
 
 
-class BleachRichTextField(BleachField, RichTextField):
+class BleachRichTextField(BleachField, HTMLField):  # RichTextField):
     """
     Field which both bleaches input and has rich text widget
     """
@@ -26,6 +26,7 @@ class BleachRichTextField(BleachField, RichTextField):
         field = super().formfield(**kwargs)
         # temporary fix until https://github.com/marksweb/django-bleach/issues/21 is resolved
         field.required = not self.blank
+        field.widget = HTMLField.formfield(self, **kwargs).widget
         return field
 
 

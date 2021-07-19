@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "6cdb2519a12c8ba3e1a489f278371acd24c343472fb2e90473267fbfe4b514d6"
+            "sha256": "8d971642d0dbb5d3f7d73a89913077d549c2c50de3598ce6864bc340a34a740c"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -133,14 +133,6 @@
             "index": "pypi",
             "version": "==0.7.0"
         },
-        "django-ckeditor": {
-            "hashes": [
-                "sha256:346b26b9d60dc8a88524d0eaaf406f4e91a4b3c22d208ae87aa032bf500b251c",
-                "sha256:f0d108f67a81a04e26d8de11255fe314f51026eaf8eb0534a807512ae3c21620"
-            ],
-            "index": "pypi",
-            "version": "==6.1.0"
-        },
         "django-configurations": {
             "hashes": [
                 "sha256:0b93cb7042739e2d69cfc6fb81676bbd3cbb63ea19b02e8b681f4cad3a8aaf1b",
@@ -181,13 +173,6 @@
             "index": "pypi",
             "version": "==3.1.3"
         },
-        "django-js-asset": {
-            "hashes": [
-                "sha256:8ec12017f26eec524cab436c64ae73033368a372970af4cf42d9354fcb166bdd",
-                "sha256:c163ae80d2e0b22d8fb598047cd0dcef31f81830e127cfecae278ad574167260"
-            ],
-            "version": "==1.2.2"
-        },
         "django-modeltranslation": {
             "hashes": [
                 "sha256:fdbb32edcf92b82c934b336c5fd0e0ecf68bd9ce56fc55b172a617edf9c252cd"
@@ -218,6 +203,14 @@
             ],
             "index": "pypi",
             "version": "==1.11.1"
+        },
+        "django-tinymce4-lite": {
+            "hashes": [
+                "sha256:2d53510ddb5fe20f25e525d4eaf7c8f8a567b85c9cc29f8ab2964419d9352d88",
+                "sha256:eb0ee7eda19970d06484f9e121871de01287b5345c4007ea2582d6f80ec3edb3"
+            ],
+            "index": "pypi",
+            "version": "==1.8.0"
         },
         "django-url-filter": {
             "hashes": [
@@ -296,6 +289,12 @@
             ],
             "markers": "python_version >= '2.6' and python_version not in '3.0, 3.1, 3.2, 3.3'",
             "version": "==0.10.0"
+        },
+        "jsmin": {
+            "hashes": [
+                "sha256:b6df99b2cd1c75d9d342e4335b535789b8da9107ec748212706ef7bbe5c2553b"
+            ],
+            "version": "==2.2.2"
         },
         "markupsafe": {
             "hashes": [
