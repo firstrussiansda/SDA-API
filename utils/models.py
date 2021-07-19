@@ -22,6 +22,12 @@ class BleachRichTextField(BleachField, RichTextField):
             pass
         super().__init__(*args[1:], **kwargs)
 
+    def formfield(self, **kwargs):
+        field = super().formfield(**kwargs)
+        # temporary fix until https://github.com/marksweb/django-bleach/issues/21 is resolved
+        field.required = not self.blank
+        return field
+
 
 class SlugFromNameMixin(models.Model):
     """
