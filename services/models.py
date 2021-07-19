@@ -3,6 +3,7 @@ import uuid
 
 from dirtyfields import DirtyFieldsMixin
 from django.conf import settings
+from django.contrib.auth import get_user_model
 from django.core.mail import send_mail
 from django.db import models
 from django.dispatch import receiver
@@ -11,7 +12,6 @@ from django.utils.timezone import localtime, now
 from django.utils.translation import gettext_lazy as _
 from django_auxilium.models import BaseModel
 from media.models import YouTubeAsset
-from people.models import Person
 from sermons.models import Sermon
 from structlog import get_logger
 from utils.models import BleachRichTextField
@@ -28,7 +28,10 @@ class Service(DirtyFieldsMixin, BaseModel):
     program_html = BleachRichTextField(_("Program"), blank=True)
 
     subscribers = models.ManyToManyField(
-        Person, related_name="services", verbose_name=_("Subscribers"), blank=True
+        get_user_model(),
+        related_name="services",
+        verbose_name=_("Subscribers"),
+        blank=True,
     )
 
     youtube_stream = models.ForeignKey(
@@ -70,10 +73,10 @@ def handle_service_change(sender, instance: Service, created, **kwargs):
     ):
         return
 
-    for person in instance.subscribers.exclude(notifications_email=None):
+    for person in instance.subscribers.exclude(email=None):
         log.info(
             "Sending service notification email",
-            to_email=person.notifications_email,
+            to_email=person.email,
         )
         send_mail(
             subject=f"Service {instance} has changed",
@@ -89,5 +92,5 @@ def handle_service_change(sender, instance: Service, created, **kwargs):
 {instance.program_html}
 """,
             from_email=settings.EMAIL_NOTIFICATIONS,
-            recipient_list=[person.notifications_email],
+            recipient_list=[person.email],
         )

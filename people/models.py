@@ -19,10 +19,6 @@ class Person(DirtyFieldsMixin, FilteredTranslatableMixin, SlugFromNameMixin, Bas
 
     name = models.CharField(_("Name"), max_length=128)
 
-    notifications_email = models.EmailField(
-        _("Email"), blank=True, help_text=_("Email to receive notifications")
-    )
-
     gravatar_email = models.EmailField(
         _("Email"), blank=True, help_text=_("Gravatar email for profile image")
     )
