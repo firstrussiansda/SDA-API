@@ -10,7 +10,6 @@ class Person(TranslationAdmin):
     fields = [
         "slug",
         "name",
-        "notifications_email",
         "gravatar_email",
         "profile_image",
         "position",
