@@ -97,6 +97,7 @@ class SoundCloudAsset(BaseAsset):
     class Meta:
         verbose_name = _("SoundCloud Asset")
         verbose_name_plural = _("SoundCloud Assets")
+        ordering = ["title"]
 
     def clean_dirty_object_id(self):
         object_id = getattr(
@@ -161,6 +162,7 @@ class YouTubeAsset(BaseAsset):
     class Meta:
         verbose_name = _("YouTube Asset")
         verbose_name_plural = _("YouTube Assets")
+        ordering = ["title", "start_at_seconds"]
 
     @property
     def object_url(self):
