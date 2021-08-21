@@ -1,13 +1,17 @@
 # -*- coding: utf-8 -*-
+import typing
 import uuid
 
 from dirtyfields import DirtyFieldsMixin
 from django.conf import settings
 from django.contrib.auth import get_user_model
+from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from django.db import models
 from django.dispatch import receiver
+from django.template.loader import render_to_string
 from django.templatetags.l10n import localize
+from django.utils.html import strip_tags
 from django.utils.timezone import localtime, now
 from django.utils.translation import gettext_lazy as _
 from django_auxilium.models import BaseModel
@@ -77,34 +81,52 @@ class Service(DirtyFieldsMixin, BaseModel):
 
     html_zoom_link.short_description = "Zoom Meeting Link"
 
+    def send_email_to(self, *, to: User, created: bool = False):
+        if now() > self.datetime:
+            return
+        log.info(
+            "Sending service notification email",
+            to_email=to.email,
+        )
+        context = {
+            "to": to,
+            "service": self,
+            "created": created,
+        }
+        subject = render_to_string(
+            "services/service_change_subject.txt", context
+        ).strip()
+        html_message = render_to_string("services/service_change_body.html", context)
+        txt_message = strip_tags(html_message)
+        send_mail(
+            subject=subject,
+            message=txt_message,
+            html_message=html_message,
+            from_email=settings.EMAIL_NOTIFICATIONS,
+            recipient_list=[to.email],
+        )
+
 
 @receiver(models.signals.post_save, sender=Service)
 def handle_service_change(sender, instance: Service, created, **kwargs):
-    if now() > instance.datetime:
-        return
-    if not created and not any(
-        i in instance.get_dirty_fields() for i in ["program_html", "youtube_stream_id"]
-    ):
-        return
-
     for person in instance.subscribers.exclude(email=None):
-        log.info(
-            "Sending service notification email",
-            to_email=person.email,
-        )
-        send_mail(
-            subject=f"Service {instance} has changed",
-            message="only html message is supported",
-            html_message=f"""
-<h1>{'Created' if created else 'Updated'} Service</h1>
-<hr>
-<h2>About Service</h2>
-<p>Time: <strong>{instance}</strong></p>
-<p>YouTube Stream: <strong>{instance.youtube_stream.html_object_link if instance.youtube_stream_id else 'none'}</strong></p>
-<hr>
-<h2>Service Program</h2>
-{instance.program_html}
-""",
-            from_email=settings.EMAIL_NOTIFICATIONS,
-            recipient_list=[person.email],
-        )
+        instance.send_email_to(to=person, created=created)
+
+
+@receiver(models.signals.m2m_changed, sender=Service.subscribers.through)
+def handle_service_subscriber_create(
+    sender,
+    instance: Service,
+    action: str,
+    reverse: bool,
+    model,
+    pk_set: typing.Set[uuid.UUID],
+    **kwargs,
+):
+    if reverse:
+        return
+    if action != "post_add":
+        return
+    users = model.objects.filter(pk__in=pk_set)
+    for user in users:
+        instance.send_email_to(to=user, created=True)
