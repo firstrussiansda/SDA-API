@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
 
-from .models import SoundCloudAsset, YouTubeAsset
+from .models import SoundCloudAsset, YouTubeAsset, ZoomAsset
 
 
 @admin.register(SoundCloudAsset)
@@ -30,3 +30,14 @@ class YouTubeOptions(admin.ModelAdmin):
         "thumbnail_override",
     ]
     readonly_fields = ["title", "html_object_link", "thumbnail_url"]
+
+
+@admin.register(ZoomAsset)
+class ZoomAssetOptions(admin.ModelAdmin):
+    list_display = ["title", "zoom_link_html"]
+    fields = [
+        "title",
+        "zoom_link",
+        "zoom_link_html",
+    ]
+    readonly_fields = ["zoom_link_html"]

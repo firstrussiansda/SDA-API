@@ -12,10 +12,13 @@ class ServiceOptions(admin.ModelAdmin):
         "subscribers",
         "youtube_stream",
         "html_youtube_link",
+        "zoom_meeting",
+        "html_zoom_link",
         "sermons",
     ]
     readonly_fields = [
         "html_youtube_link",
+        "html_zoom_link",
     ]
     filter_horizontal = ["sermons", "subscribers"]
     list_display = [
