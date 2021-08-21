@@ -24,6 +24,7 @@ class ServiceOptions(admin.ModelAdmin):
     list_display = [
         "datetime",
         "html_youtube_link",
+        "html_zoom_link",
     ]
 
     def get_queryset(self, request):

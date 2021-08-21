@@ -73,7 +73,7 @@ class Service(DirtyFieldsMixin, BaseModel):
 
     def html_zoom_link(self):
         if self.zoom_meeting_id:
-            return self.zoom_meeting_id.zoom_link_html
+            return self.zoom_meeting.zoom_link_html
 
     html_zoom_link.short_description = "Zoom Meeting Link"
 
