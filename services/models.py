@@ -11,7 +11,7 @@ from django.templatetags.l10n import localize
 from django.utils.timezone import localtime, now
 from django.utils.translation import gettext_lazy as _
 from django_auxilium.models import BaseModel
-from media.models import YouTubeAsset
+from media.models import YouTubeAsset, ZoomAsset
 from sermons.models import Sermon
 from structlog import get_logger
 from utils.models import BleachRichTextField
@@ -34,6 +34,14 @@ class Service(DirtyFieldsMixin, BaseModel):
         blank=True,
     )
 
+    zoom_meeting = models.ForeignKey(
+        ZoomAsset,
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="services",
+        verbose_name=_("Zoom Meeting"),
+    )
     youtube_stream = models.ForeignKey(
         YouTubeAsset,
         null=True,
@@ -62,6 +70,12 @@ class Service(DirtyFieldsMixin, BaseModel):
             return self.youtube_stream.html_object_link
 
     html_youtube_link.short_description = "YouTube Stream"
+
+    def html_zoom_link(self):
+        if self.zoom_meeting_id:
+            return self.zoom_meeting_id.zoom_link_html
+
+    html_zoom_link.short_description = "Zoom Meeting Link"
 
 
 @receiver(models.signals.post_save, sender=Service)

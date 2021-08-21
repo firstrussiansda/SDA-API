@@ -194,3 +194,24 @@ class YouTubeAsset(BaseAsset):
         if self.start_at_seconds:
             return f"{title} @ {self.start_at_seconds}"
         return title
+
+
+class ZoomAsset(BaseModel):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+
+    title = models.CharField(_("Title"), max_length=128)
+    zoom_link = models.URLField(_("Zoom Link"), max_length=256)
+
+    class Meta:
+        verbose_name = _("Zoom Asset")
+        verbose_name_plural = _("Zoom Assets")
+        ordering = ["title"]
+
+    def __str__(self):
+        return self.title
+
+    @property
+    def zoom_link_html(self):
+        return mark_safe(
+            f'<a target="blank" href={self.zoom_link}>{self.zoom_link}</a>'
+        )
