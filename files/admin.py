@@ -7,5 +7,6 @@ from .models import Attachment
 
 @admin.register(Attachment)
 class AttachmentOptions(TranslationAdmin):
-    fields = ["name", "file", "checksum"]
-    readonly_fields = ["checksum"]
+    fields = ["name", "file", "checksum", "created"]
+    readonly_fields = ["checksum", "created"]
+    list_display = ["name", "created"]
