@@ -135,6 +135,7 @@
   },
   {
     "fields": {
+      "checksum": "03caadf43d2c02dc22fbf2fb8b952d4d3b038d84b3c630fcb4a33bdb11b60f20",
       "created": "2020-02-02T16:48:45.955Z",
       "file": "files/attachments/0eca18848bf641a6860f6f95d82f9e7c.pdf",
       "modified": "2020-02-02T16:48:45.955Z",
