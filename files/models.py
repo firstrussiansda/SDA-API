@@ -29,6 +29,7 @@ class Attachment(DirtyFieldsMixin, BaseModel):
     class Meta:
         verbose_name = _("Attachment")
         verbose_name_plural = _("Attachments")
+        ordering = ["-created"]
 
     def __str__(self):
         return self.name
