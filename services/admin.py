@@ -1,7 +1,12 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
 
-from .models import Service
+from .models import Service, ServiceAttachment
+
+
+class ServiceAttachmentInline(admin.StackedInline):
+    model = ServiceAttachment
+    extra = 1
 
 
 @admin.register(Service)
@@ -26,6 +31,7 @@ class ServiceOptions(admin.ModelAdmin):
         "html_youtube_link",
         "html_zoom_link",
     ]
+    inlines = [ServiceAttachmentInline]
 
     def get_queryset(self, request):
         return Service.objects.select_related("youtube_stream").all()

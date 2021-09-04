@@ -15,6 +15,7 @@ from django.utils.html import strip_tags
 from django.utils.timezone import localtime, now
 from django.utils.translation import gettext_lazy as _
 from django_auxilium.models import BaseModel
+from files.models import Attachment
 from media.models import YouTubeAsset, ZoomAsset
 from sermons.models import Sermon
 from structlog import get_logger
@@ -59,6 +60,11 @@ class Service(DirtyFieldsMixin, BaseModel):
         related_name="services",
         verbose_name=Sermon._meta.verbose_name_plural,
         blank=True,
+    )
+    attachments = models.ManyToManyField(
+        Attachment,
+        through="ServiceAttachment",
+        verbose_name=_("Attachments"),
     )
 
     class Meta:
@@ -105,6 +111,14 @@ class Service(DirtyFieldsMixin, BaseModel):
             from_email=settings.EMAIL_NOTIFICATIONS,
             recipient_list=[to.email],
         )
+
+
+class ServiceAttachment(BaseModel):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+
+    notes = models.TextField(_("Notes"), blank=True)
+    service = models.ForeignKey(Service, on_delete=models.CASCADE)
+    attachment = models.ForeignKey(Attachment, on_delete=models.CASCADE)
 
 
 @receiver(models.signals.post_save, sender=Service)
