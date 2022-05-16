@@ -50,23 +50,8 @@ jobs:
           printenv DOCKER_CLIENT_CERT > $DOCKER_CERT_PATH/cert.pem
           printenv DOCKER_CLIENT_KEY > $DOCKER_CERT_PATH/key.pem
 
-          # create new cert if one does not exist already
-          docker-compose run --rm \
-              certbot certificates \
-            2>&1 \
-            | grep "No certs found" \
-            && docker-compose run --rm \
-              -p 80:80 \
-              certbot certonly \
-                --non-interactive \
-                --agree-tos \
-                -m $CERTBOT_EMAIL \
-                --standalone \
-                --must-staple \
-                -d nycsda.org \
-                -d www.nycsda.org \
-                -d api.nycsda.org \
-            || true
+          docker-compose run --rm --no-deps cloudflared tunnel list | grep "nginx"  \
+            || docker-compose run --rm --no-deps cloudflared tunnel login
 
           docker-compose build --pull
           docker-compose up certbot

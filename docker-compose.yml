@@ -8,6 +8,7 @@ volumes:
   data:
   media:
   certs:
+  cloudflared:
 
 services:
   db:
@@ -48,20 +49,20 @@ services:
     volumes:
       - data:/data
       - ${MEDIA_VOLUME:-media}:/media
-      - certs:/etc/letsencrypt
     depends_on:
       - app
     ports:
-      - 80:80
-      - 443:443
+      - 127.0.0.1:80:80
     networks:
       - app
     restart: always
 
-  certbot:
-    image: certbot/certbot
-    command: renew --must-staple --webroot --webroot-path=/data -v
+  cloudflared:
+    image: cloudflare/cloudflared
+    command: tunnel run --url=http://nginx:80 nginx
     volumes:
-      - data:/data
-      - ${MEDIA_VOLUME:-media}:/media
-      - certs:/etc/letsencrypt
+      - cloudflared:/home/nonroot
+    depends_on:
+      - nginx
+    networks:
+      - app
