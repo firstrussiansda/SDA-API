@@ -63,9 +63,9 @@ jobs:
                 -m $CERTBOT_EMAIL \
                 --standalone \
                 --must-staple \
-                -d firstrussiansda.org \
-                -d www.firstrussiansda.org \
-                -d api.firstrussiansda.org \
+                -d nycsda.org \
+                -d www.nycsda.org \
+                -d api.nycsda.org \
             || true
 
           docker-compose build --pull
